@@ -1,0 +1,32 @@
+﻿@model IEnumerable<GrupaEka.Models.News>
+@using GrupaEka.Helpers
+@{
+    ViewBag.Title = "Zarządzanie aktualnościami";
+}
+
+<p>
+    @Html.ActionLink("Dodaj wiadomość", "Create")
+</p>
+<table class="manage">
+    <tr>
+        <th>Tytuł</th>
+        <th>Data</th>
+        <th>Treść</th>
+        <th>Opcje</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.Truncate(item.Title, 15)</td>
+        <td>@String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</td>
+        <td>@Html.Truncate(item.Text, 15)</td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Podgląd", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

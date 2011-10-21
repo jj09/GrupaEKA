@@ -1,0 +1,20 @@
+﻿@model GrupaEka.Models.LogOnModel
+           
+
+@if(Request.IsAuthenticated) 
+{
+    <text>Jesteś zalogowany jako:<br /> <b>@Context.User.Identity.Name</b>
+    [@Html.ActionLink("Wyloguj", "LogOff", "Account")]</text>
+}
+
+else 
+{
+    @*@using (Html.BeginForm()) 
+    {*@
+        <form action="/Account/LogOn" method="post">  
+            Użytkownik: @Html.TextBoxFor(m => m.UserName)
+            Hasło: @Html.PasswordFor(m => m.Password)
+            <input type="submit" value="Zaloguj" />
+        </form>
+    @*}*@
+}

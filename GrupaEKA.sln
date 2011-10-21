@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupaEka", "GrupaEKA\GrupaEka.csproj", "{99896CE7-EA42-4E8B-B58C-6BBCEA2F40EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupaEKA.Tests", "GrupaEKA.Tests\GrupaEKA.Tests.csproj", "{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99896CE7-EA42-4E8B-B58C-6BBCEA2F40EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99896CE7-EA42-4E8B-B58C-6BBCEA2F40EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99896CE7-EA42-4E8B-B58C-6BBCEA2F40EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99896CE7-EA42-4E8B-B58C-6BBCEA2F40EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

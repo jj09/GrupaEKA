@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Lista użytkowników";
+}
+
+<script type="text/javascript">
+    function success() {
+        $('#successInfo').text('Zaktualizowano pomyślnie').show('fast').delay(1800).hide('fast');
+    }
+</script>
+<div id="successInfo"></div>
+
+<table>
+    <tr>
+        <th>
+            Użytkownik
+        </th>
+        <th>
+            aktywny
+        </th>
+        <th>
+            ranga
+        </th>
+        <th>
+            akcje
+        </th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        using (Ajax.BeginForm(
+            "Edit", "Account", null,
+            new AjaxOptions()
+            {
+                HttpMethod = "Post",
+                OnFailure = "alert('Error')",
+                OnSuccess = "success",
+                OnComplete = "PostOnComplete"
+            },
+            new { id = "updateUser", @class = "inline" }))
+        {
+            <tr>
+                <td>
+                    <a href="/Account/Details?UserName=@user.UserName">@user.UserName</a>
+                </td>
+                <td>               
+                    @if (user.IsApproved == true)
+                    {
+                        <input type="checkbox" checked="checked" value="true" name="IsApproved" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="true" name="IsApproved" />
+                    }
+                </td>
+                <td>                
+                    @Html.DropDownList("Role", new SelectList(ViewBag.roles, "Value", "Text", Roles.GetRolesForUser(user.UserName)[0]))
+                    <input type="hidden" name="UserName" value="@user.UserName" />                    
+                </td>
+                <td>
+                    <input type="submit" value="Aktualizuj" />            
+                    @Html.ActionLink("[usuń]", "Delete", "Account", new { userName = user.UserName }, null)
+                </td>
+            </tr>
+        }
+    }
+</table>

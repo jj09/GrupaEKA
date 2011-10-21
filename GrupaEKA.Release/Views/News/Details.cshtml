@@ -1,0 +1,14 @@
+﻿@model GrupaEka.Models.News
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h3>@String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
+<p>@Html.Raw(Model.Text)</p>
+
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Usuń", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót do listy aktualności", "Index")
+</p>
