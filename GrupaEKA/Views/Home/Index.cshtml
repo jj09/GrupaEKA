@@ -9,11 +9,14 @@
 @foreach (var item in Model)
 {
     <h2>@item.Title</h2>
-    <h4>@String.Format("dodane {0:d} ({0:HH}:{0:mm})", item.Date)</h4>
+    <h4>@String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
     <p>@Html.Raw(item.Text)</p>
-    <p>
-        @Html.ActionLink("Edytuj", "Edit", "News", new { id = item.ID }, null) |
-        @Html.ActionLink("Usuń", "Delete", "News", new { id = item.ID }, null)
-    </p>
+    if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
+    {
+        <p>
+            @Html.ActionLink("Edytuj", "Edit", "News", new { id = item.ID }, null) |
+            @Html.ActionLink("Usuń", "Delete", "News", new { id = item.ID }, null)
+        </p>
+    }
     <hr style="height: 1px; background-color: #e0e0e0; width: 80%" />
 }

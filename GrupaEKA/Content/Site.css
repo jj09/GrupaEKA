@@ -133,6 +133,7 @@ section#main
     border: 0;
     padding: 0;
     width: 960px;
+    display: table;
 }
 
 footer, 
@@ -175,8 +176,9 @@ div#footerspacer
 
 div#content
 {
-    display: inline-table;
-    float: left;
+    display: table-cell;
+    float: none;
+    vertical-align: top;
     width: 640px;
 	background-color: #ffffff;
 	background-image: url('images/contentbg.png');
@@ -237,8 +239,9 @@ div#content h4 /*date-title*/
 div#side
 {
     
-    display: inline-table;
-    float: left;
+    display: table-cell;
+    float: none;
+    vertical-align: top;
     width: 320px;
     margin: 0;
 	background-color: #f0f0f0;
@@ -271,7 +274,7 @@ div#side hr
 ul#menu {
     /*background-image: url('images/linkbar.png');
 	background-position: top center;
-	background-repeat: no-repeat;*/
+	background-repeat: no-repeat;*/	
 	margin: 0;
     padding: 0;
     border-collapse: collapse;
@@ -280,7 +283,6 @@ ul#menu {
 ul#menu li {
     width: 120px;
 	height: 48px;
-    display: inline-table;
     position:relative; 
     float:left; 
     list-style-type:none;
@@ -382,7 +384,6 @@ table.manage td
 
 nav, 
 #menucontainer {
-    /*margin-top: 40px;*/
     border-collapse: collapse;
     padding: 0;
     margin: 0;
