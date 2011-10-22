@@ -13,6 +13,8 @@
     <fieldset>
         <legend>Wiadomość</legend>
 
+        <input type="hidden" name="News.Author" id="News.Author" value="@HttpContext.Current.User.Identity.Name" />
+
         <div class="editor-label">
             Tytuł
         </div>

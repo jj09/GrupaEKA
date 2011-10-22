@@ -13,6 +13,10 @@
         <legend>Wiadomość</legend>
 
          @Html.HiddenFor(model => model.News.ID)
+         
+         <div class="editor-label">
+            Autor: <b>@Model.News.Author</b>
+        </div>
 
         <div class="editor-label">
             Tytuł
@@ -49,6 +53,8 @@
             @Html.EditorFor(model => model.Minutes)
             <input type="button" value="Teraz" id="time-now" />
         </div>
+
+        
 
         <p>
             <input type="submit" value="Zapisz" />

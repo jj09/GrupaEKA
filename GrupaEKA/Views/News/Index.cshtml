@@ -20,7 +20,7 @@
     <tr>
         <td>@Html.Truncate(item.Title, 15)</td>
         <td>@String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</td>
-        <td>@Html.Truncate(item.Text, 15)</td>
+        <td>@Html.Raw(Html.Truncate(item.Text, 15))</td>
         <td>
             @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Podgląd", "Details", new { id = item.ID }) |

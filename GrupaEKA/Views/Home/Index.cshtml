@@ -9,7 +9,7 @@
 @foreach (var item in Model)
 {
     <h2>@item.Title</h2>
-    <h4>@String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
+    <h4>@item.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
     <p>@Html.Raw(item.Text)</p>
     if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
     {

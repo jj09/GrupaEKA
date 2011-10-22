@@ -7,10 +7,11 @@
 <p>Jesteś pewien, że chcesz usunąć poniższą wiadomość?</p>
 
 <h2>@Model.Title</h2>
-<h3>@String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
-<p>@Model.Text</p>
+<h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
+<p>@Html.Raw(Model.Text)</p>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <p>
         <input type="submit" value="Usuń" /> |
         @Html.ActionLink("Powrót do listy aktualności", "Index")
