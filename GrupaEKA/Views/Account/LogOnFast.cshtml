@@ -3,8 +3,13 @@
 
 @if(Request.IsAuthenticated) 
 {
-    <text>Jesteś zalogowany jako:<br /> <b>@Context.User.Identity.Name</b>
-    [@Html.ActionLink("Wyloguj", "LogOff", "Account")]</text>
+    <text>
+    Jesteś zalogowany jako:<br /> 
+    <b>@Context.User.Identity.Name</b>
+    [@Html.ActionLink("Wyloguj", "LogOff", "Account")]
+    <br />
+    [@Html.ActionLink("Zmiana hasła", "ChangePassword", "Account")]
+    </text>
 }
 
 else 

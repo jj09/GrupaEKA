@@ -10,8 +10,9 @@
                 Użytkownik:
             </th>
             <td>
-                <input type="hidden" name="UserName" value="@Model.UserName" />
-                <input type="text" value="@Model.UserName" name="newUserName" />
+                <input type="hidden" name="UserName" id="UserName" value="@Model.UserName" />
+                @*<input type="text" value="@Model.UserName" name="newUserName" id="newUserName" />*@
+                @Model.UserName
             </td>
         </tr>
         <tr>
@@ -19,7 +20,7 @@
                 E-mail:
             </th>
             <td>
-                <input type="text" value="@Model.Email" name="newUserName" />
+                <input  type="email" required="required" pattern="^[0-9a-z_.-]+@@([0-9a-z-]+\.)+[a-z]{2,6}$" value="@Model.Email" name="Email" id="Email" />
             </td>
         </tr>
         <tr>

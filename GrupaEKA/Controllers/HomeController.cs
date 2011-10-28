@@ -18,11 +18,6 @@ namespace GrupaEka.Controllers
             return View(news);
         }
 
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             return View();

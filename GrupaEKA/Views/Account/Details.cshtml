@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Dane uzytkownika " + Model.UserName;
+    ViewBag.Title = "Dane użytkownika " + Model.UserName;
 }
 
 <table>
@@ -29,7 +29,7 @@
 </table>
 
 <p>
-    @Html.ActionLink("Edytuj", "Edit", new { id = Model.UserName }) |
-    @Html.ActionLink("Usuń", "Delete", new { id = Model.UserName }) |
+    @Html.ActionLink("Edytuj", "Edit", new { UserName = Model.UserName }) |
+    @Html.ActionLink("Usuń", "Delete", new { UserName = Model.UserName }) |
     @Html.ActionLink("Powrót do listy użytkowników", "Index")
 </p>

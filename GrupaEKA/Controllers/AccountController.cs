@@ -57,23 +57,34 @@ namespace GrupaEka.Controllers
         {
             try
             {
+                MembershipUser user = Membership.GetUser(model.UserName,false);
+
+                //change user name
+                //if (model.newUserName != model.UserName)
+                //{
+                //    var pass = user.GetPassword();
+                //    var newUser = Membership.CreateUser(model.newUserName, pass);
+                //    newUser.IsApproved = user.IsApproved;
+                //    newUser.Email = user.Email;
+                //    Roles.RemoveUserFromRole(model.UserName, Roles.GetRolesForUser(model.UserName)[0]);
+                //    Roles.AddUserToRole(model.newUserName, model.Role);
+                //    Membership.DeleteUser(user.UserName);
+                //    user = newUser;
+                //}
+
+                //change e-mail
+                user.Email = model.Email;
+
                 //change role
-                Roles.RemoveUserFromRole(model.UserName, Roles.GetRolesForUser(model.UserName)[0]);
-                Roles.AddUserToRole(model.UserName, model.Role);
-                
-                //change approvement
-                var user = Membership.GetUser(model.UserName);
-                user.IsApproved = model.IsApproved;
-                if (model.newUserName != model.UserName)
-                {                    
-                    var newUser = Membership.CreateUser(model.newUserName, user.GetPassword());
-                    newUser.IsApproved = user.IsApproved;
-                    newUser.Email = user.Email;
+                if (Roles.GetRolesForUser(model.UserName)[0] != model.Role)
+                {
                     Roles.RemoveUserFromRole(model.UserName, Roles.GetRolesForUser(model.UserName)[0]);
-                    Roles.AddUserToRole(model.newUserName, model.Role);
-                    Membership.DeleteUser(user.UserName);
-                    user = newUser;
+                    Roles.AddUserToRole(model.UserName, model.Role);
                 }
+                
+                //change approvement                
+                user.IsApproved = model.IsApproved;
+                
                 Membership.UpdateUser(user);
                 
 
@@ -231,7 +242,7 @@ namespace GrupaEka.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "Obecne hasło lub nowe jest niepoprawne.");
                 }
             }
 

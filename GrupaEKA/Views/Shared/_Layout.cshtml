@@ -42,8 +42,19 @@
                             @{Html.RenderAction("LogOnFast", "Account");}
                         </div>
                         <hr />
-                        <h2>Kontakt:</h2>
-                        <p>dawid.starkowski@studentpartner.pl</p>
+                        <h2>Kontakt</h2>
+                        <fieldset>
+                            <legend>Napisz do nas</legend>
+                            <label>e-mail:</label><br />
+                            <input type="email" required="required" pattern="^[0-9a-z_.-]+@@([0-9a-z-]+\.)+[a-z]{2,6}$" value="" name="Email" id="Email"/>
+                            <label>wiadomość:</label><br />
+                            <textarea rows="10" cols="26" name="Email_Text" id="Email_Text"></textarea>
+                            <input type="submit" value="Wyślij" />
+                        </fieldset>
+                        <hr />
+                        <h2>Nasz profil na CodeGuru</h2>
+                        <div class="center"><a href="http://www.codeguru.pl/grupy/142"><img src="../../Content/images/codeguru.jpg" alt="CodeGuru" /></a></div>
+                        <hr />
                     </div>
                 </div>
             </section>

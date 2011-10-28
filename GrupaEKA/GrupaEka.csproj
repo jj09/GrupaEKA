@@ -119,6 +119,7 @@
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\bottombg.png" />
     <Content Include="Content\images\calendar.jpg" />
+    <Content Include="Content\images\codeguru.jpg" />
     <Content Include="Content\images\contentbg.png" />
     <Content Include="Content\images\dare.gif" />
     <Content Include="Content\images\dotnet4logo.jpg" />
@@ -222,7 +223,6 @@
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

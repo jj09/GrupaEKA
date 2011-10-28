@@ -310,6 +310,7 @@ textarea {
 }
 
 input[type="text"], 
+input[type="email"],
 input[type="password"] {
     border: 1px solid #ccc;
     padding: 2px;
@@ -326,7 +327,9 @@ select {
     color: #444;
 }
 
-input[type="submit"] {
+input[type="submit"] 
+{
+    margin: 5px;
     font-size: 1.0em;
     padding: 5px;
     border: 1px solid #ccc;
@@ -476,8 +479,6 @@ div#time-editor input[type="text"]
     width: 24px;
 }
 
-
-
 .editor-field input[type="button"]
 {
     border: 0px;
@@ -488,4 +489,9 @@ div#time-editor input[type="text"]
     cursor: hand;
     cursor: pointer;
     padding: 0px;
+}
+
+.center 
+{
+    text-align: center;
 }

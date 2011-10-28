@@ -1,125 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="d:\PWr\projekt inżynierski\GrupaEKA\GrupaEKA.Release" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="GrupaEKA" publishMethod="FTP" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="Content/images/bottombg.png" publishTime="07/03/2011 15:31:14" />
+    <file relUrl="Views/News/Index.cshtml" publishTime="10/21/2011 21:40:36" />
     <file relUrl="Content/images/linkbar07_.jpg" publishTime="10/17/2011 10:27:41" />
     <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Content/images/link2.png" publishTime="07/03/2011 15:31:17" />
     <file relUrl="Content/images/link1.png" publishTime="07/03/2011 15:31:16" />
-    <file relUrl="Content/images/linkbar07.jpg" publishTime="10/17/2011 10:30:49" />
-    <file relUrl="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="bin/EntityFramework.dll" publishTime="10/13/2011 19:33:30" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="10/13/2011 19:33:28" />
     <file relUrl="Views/Account/LogOn.cshtml" publishTime="10/16/2011 01:33:19" />
     <file relUrl="Content/images/linkbar06_.jpg" publishTime="10/17/2011 10:27:41" />
-    <file relUrl="Scripts/jquery.validate.min.js" publishTime="10/13/2011 19:33:23" />
+    <file relUrl="Content/images/linkbar07.jpg" publishTime="10/17/2011 10:30:49" />
     <file relUrl="Content/images/linkbar08_.png" publishTime="10/17/2011 10:27:41" />
-    <file relUrl="Views/News/Create.cshtml" publishTime="10/19/2011 00:36:34" />
+    <file relUrl="Views/News/Create.cshtml" publishTime="10/21/2011 21:45:14" />
     <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Content/images/linkbar02.jpg" publishTime="10/17/2011 10:30:48" />
     <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Content/images/contentbg.png" publishTime="07/03/2011 15:31:14" />
-    <file relUrl="Scripts/NewsDateHelper-edit.js" publishTime="10/19/2011 00:49:31" />
-    <file relUrl="Web.config" publishTime="10/21/2011 01:03:07" />
+    <file relUrl="Views/News/Delete.cshtml" publishTime="10/21/2011 21:39:47" />
+    <file relUrl="Web.config" publishTime="10/21/2011 21:54:49" />
     <file relUrl="Content/images/dare.gif" publishTime="07/03/2011 15:31:15" />
     <file relUrl="Content/images/linkbar02_.jpg" publishTime="10/17/2011 10:27:40" />
     <file relUrl="Content/themes/base/images/ui-icons_cd0a0a_256x240.png" publishTime="10/13/2011 19:33:28" />
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Content/images/linkbar03_.jpg" publishTime="10/17/2011 10:27:40" />
     <file relUrl="Scripts/jquery-ui-1.8.11.js" publishTime="10/13/2011 19:33:25" />
-    <file relUrl="bin/GrupaEKA.dll" publishTime="10/21/2011 01:02:23" />
+    <file relUrl="Content/images/link2_.png" publishTime="07/03/2011 15:31:17" />
+    <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="10/13/2011 19:33:28" />
+    <file relUrl="bin/GrupaEKA.dll" publishTime="10/21/2011 21:32:57" />
     <file relUrl="Content/images/linkbar05_.jpg" publishTime="10/17/2011 10:27:40" />
     <file relUrl="Content/images/pagebg.png" publishTime="07/03/2011 15:31:19" />
     <file relUrl="Global.asax" publishTime="10/13/2011 23:58:55" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="10/13/2011 19:33:01" />
-    <file relUrl="Views/Home/About.cshtml" publishTime="10/14/2011 01:01:05" />
     <file relUrl="Content/images/mainbg.png" publishTime="10/13/2011 20:05:14" />
     <file relUrl="Content/themes/base/images/ui-icons_2e83ff_256x240.png" publishTime="10/13/2011 19:33:28" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="10/13/2011 19:33:29" />
-    <file relUrl="Scripts/jquery-1.5.1.js" publishTime="10/13/2011 19:33:21" />
-    <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Content/images/linkbar01.jpg" publishTime="10/17/2011 10:30:48" />
+    <file relUrl="Views/Account/Delete.cshtml" publishTime="10/16/2011 01:41:37" />
     <file relUrl="Content/images/howto.gif" publishTime="07/03/2011 15:31:16" />
     <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="10/13/2011 19:33:27" />
+    <file relUrl="Content/images/404.jpg" publishTime="10/13/2011 23:38:31" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Scripts/jquery-ui-1.8.11.min.js" publishTime="10/13/2011 19:33:25" />
     <file relUrl="Content/images/linkbar03.jpg" publishTime="10/17/2011 10:30:48" />
-    <file relUrl="Views/News/Index.cshtml" publishTime="10/15/2011 21:37:16" />
     <file relUrl="Views/Shared/_LogOnPartial.cshtml" publishTime="10/14/2011 00:24:44" />
-    <file relUrl="Views/Account/Edit.cshtml" publishTime="10/16/2011 02:02:25" />
-    <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="10/13/2011 19:33:27" />
-    <file relUrl="Views/Account/Delete.cshtml" publishTime="10/16/2011 01:41:37" />
-    <file relUrl="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="10/13/2011 19:33:28" />
-    <file relUrl="Content/images/topbar.png" publishTime="10/13/2011 20:05:14" />
-    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="10/13/2011 19:33:01" />
+    <file relUrl="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Content/images/linkbar05.jpg" publishTime="10/17/2011 10:30:49" />
+    <file relUrl="Scripts/jquery-1.5.1.js" publishTime="10/13/2011 19:33:21" />
     <file relUrl="Content/themes/base/jquery.ui.core.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Content/images/linkbarbg.png" publishTime="10/13/2011 20:05:14" />
-    <file relUrl="Scripts/modernizr-1.7.min.js" publishTime="10/13/2011 19:33:32" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png" publishTime="10/13/2011 19:33:29" />
-    <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="10/13/2011 19:33:27" />
+    <file relUrl="Content/images/linkbar.png" publishTime="07/03/2011 15:31:18" />
     <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Content/images/linkbar04.jpg" publishTime="10/17/2011 10:30:48" />
     <file relUrl="Views/Account/Details.cshtml" publishTime="10/16/2011 01:42:42" />
     <file relUrl="Content/themes/base/jquery.ui.selectable.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Views/Account/Register.cshtml" publishTime="10/15/2011 23:29:37" />
-    <file relUrl="Views/Home/Index.cshtml" publishTime="10/19/2011 00:45:07" />
     <file relUrl="Content/images/linkbar04_.jpg" publishTime="10/17/2011 10:27:40" />
+    <file relUrl="Views/News/Edit.cshtml" publishTime="10/21/2011 21:38:59" />
     <file relUrl="Content/themes/base/jquery.ui.progressbar.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="packages.config" publishTime="10/13/2011 19:33:32" />
-    <file relUrl="Content/themes/base/images/ui-icons_888888_256x240.png" publishTime="10/13/2011 19:33:28" />
-    <file relUrl="bin/GrupaEKA.pdb" publishTime="10/21/2011 01:02:21" />
+    <file relUrl="Content/images/calendar.jpg" publishTime="10/15/2011 19:14:39" />
+    <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="bin/GrupaEKA.pdb" publishTime="10/21/2011 21:32:57" />
     <file relUrl="Content/images/linkbar01_.jpg" publishTime="10/17/2011 10:27:39" />
-    <file relUrl="Content/images/link1_.png" publishTime="07/03/2011 15:31:17" />
+    <file relUrl="Views/Home/About.cshtml" publishTime="10/14/2011 01:01:05" />
     <file relUrl="Views/Account/ChangePasswordSuccess.cshtml" publishTime="10/13/2011 19:33:01" />
-    <file relUrl="Views/News/Delete.cshtml" publishTime="10/16/2011 02:18:43" />
-    <file relUrl="Views/Shared/Error.cshtml" publishTime="10/14/2011 01:12:49" />
-    <file relUrl="Views/News/Details.cshtml" publishTime="10/19/2011 00:41:30" />
+    <file relUrl="Views/Shared/Error.cshtml" publishTime="10/21/2011 01:14:12" />
+    <file relUrl="Views/News/Details.cshtml" publishTime="10/21/2011 21:36:08" />
     <file relUrl="Content/themes/base/images/ui-icons_454545_256x240.png" publishTime="10/13/2011 19:33:28" />
     <file relUrl="Views/Home/Index2.cshtml" publishTime="10/13/2011 22:41:38" />
-    <file relUrl="Scripts/jquery-1.5.1.min.js" publishTime="10/13/2011 19:33:21" />
-    <file relUrl="Content/images/NET_h_rgb_2.png" publishTime="07/03/2011 15:31:18" />
-    <file relUrl="Content/images/link2_.png" publishTime="07/03/2011 15:31:17" />
-    <file relUrl="Content/themes/base/jquery.ui.tabs.css" publishTime="10/13/2011 19:33:27" />
-    <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="10/13/2011 19:33:01" />
+    <file relUrl="Content/images/bottombg.png" publishTime="07/03/2011 15:31:14" />
+    <file relUrl="Scripts/jquery.validate.min.js" publishTime="10/13/2011 19:33:23" />
+    <file relUrl="Views/Account/Edit.cshtml" publishTime="10/16/2011 02:02:25" />
+    <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="10/13/2011 19:33:25" />
     <file relUrl="Content/images/dotnet4logo.jpg" publishTime="07/03/2011 15:31:15" />
     <file relUrl="Content/images/ninja.gif" publishTime="07/03/2011 15:31:19" />
-    <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="10/13/2011 19:33:25" />
+    <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Views/Account/ChangePassword.cshtml" publishTime="10/13/2011 23:58:55" />
-    <file relUrl="Content/images/linkbar05.jpg" publishTime="10/17/2011 10:30:49" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="10/13/2011 19:33:01" />
+    <file relUrl="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Content/images/topbar.png" publishTime="10/13/2011 20:05:14" />
     <file relUrl="Views/Account/Index.cshtml" publishTime="10/16/2011 01:50:27" />
-    <file relUrl="Content/themes/base/jquery.ui.all.css" publishTime="10/13/2011 19:33:28" />
-    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="10/19/2011 00:56:39" />
+    <file relUrl="Scripts/jquery-1.5.1.min.js" publishTime="10/13/2011 19:33:21" />
+    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="10/21/2011 16:14:15" />
     <file relUrl="Content/images/sidebg.png" publishTime="07/03/2011 15:31:19" />
     <file relUrl="Views/Account/LogOnFast.cshtml" publishTime="10/15/2011 22:11:52" />
     <file relUrl="bin/EntityFramework.xml" publishTime="10/13/2011 19:33:30" />
     <file relUrl="Content/images/background.png" publishTime="07/03/2011 15:31:13" />
-    <file relUrl="Content/Site.css" publishTime="10/19/2011 01:02:27" />
-    <file relUrl="Content/images/calendar.jpg" publishTime="10/15/2011 19:14:39" />
-    <file relUrl="bin/EntityFramework.dll" publishTime="10/13/2011 19:33:30" />
+    <file relUrl="Content/Site.css" publishTime="10/21/2011 15:52:00" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="10/13/2011 19:33:01" />
+    <file relUrl="Content/themes/base/images/ui-icons_888888_256x240.png" publishTime="10/13/2011 19:33:28" />
     <file relUrl="Content/images/footerbg.png" publishTime="10/13/2011 20:05:14" />
     <file relUrl="Content/themes/base/images/ui-icons_222222_256x240.png" publishTime="10/13/2011 19:33:28" />
-    <file relUrl="Content/images/linkbar06.jpg" publishTime="10/17/2011 10:30:49" />
+    <file relUrl="Scripts/NewsDateHelper-edit.js" publishTime="10/19/2011 00:49:31" />
     <file relUrl="Views/_ViewStart.cshtml" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Scripts/modernizr-1.7.js" publishTime="10/13/2011 19:33:32" />
-    <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="10/13/2011 19:33:01" />
-    <file relUrl="Content/images/linkbar08.png" publishTime="10/17/2011 10:30:49" />
+    <file relUrl="Scripts/modernizr-1.7.min.js" publishTime="10/13/2011 19:33:32" />
+    <file relUrl="Content/themes/base/jquery.ui.all.css" publishTime="10/13/2011 19:33:28" />
+    <file relUrl="Content/images/link1_.png" publishTime="07/03/2011 15:31:17" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Scripts/jquery-1.5.1-vsdoc.js" publishTime="10/13/2011 19:33:22" />
+    <file relUrl="Content/images/leftbg.png" publishTime="10/13/2011 20:05:14" />
+    <file relUrl="Content/images/howto2.gif" publishTime="07/03/2011 15:31:16" />
     <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="10/13/2011 19:33:29" />
     <file relUrl="Content/images/bg.png" publishTime="07/03/2011 15:31:14" />
     <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="10/13/2011 19:33:23" />
     <file relUrl="Content/images/rightbg.png" publishTime="10/13/2011 20:05:14" />
     <file relUrl="Scripts/jquery.validate.js" publishTime="10/13/2011 19:33:23" />
-    <file relUrl="Views/News/Edit.cshtml" publishTime="10/19/2011 00:48:52" />
+    <file relUrl="Content/images/linkbar06.jpg" publishTime="10/17/2011 10:30:49" />
     <file relUrl="Views/Web.config" publishTime="10/13/2011 19:33:01" />
-    <file relUrl="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="10/13/2011 19:33:29" />
+    <file relUrl="Content/images/linkbar08.png" publishTime="10/17/2011 10:30:49" />
     <file relUrl="Content/images/top.png" publishTime="10/13/2011 20:05:14" />
-    <file relUrl="Content/images/linkbar.png" publishTime="07/03/2011 15:31:18" />
-    <file relUrl="Content/images/linkbar01.jpg" publishTime="10/17/2011 10:30:48" />
-    <file relUrl="Content/images/howto2.gif" publishTime="07/03/2011 15:31:16" />
-    <file relUrl="Content/images/leftbg.png" publishTime="10/13/2011 20:05:14" />
-    <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="10/13/2011 19:33:28" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="10/13/2011 19:33:01" />
+    <file relUrl="Content/themes/base/jquery.ui.tabs.css" publishTime="10/13/2011 19:33:27" />
+    <file relUrl="Content/images/NET_h_rgb_2.png" publishTime="07/03/2011 15:31:18" />
+    <file relUrl="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="10/13/2011 19:33:28" />
+    <file relUrl="Views/Home/Index.cshtml" publishTime="10/21/2011 21:32:48" />
     <file relUrl="Scripts/NewsDateHelper.js" publishTime="10/16/2011 02:21:05" />
   </publishProfile>
 </publishData>
