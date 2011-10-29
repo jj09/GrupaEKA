@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Helpers\CustomHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\GrupaEkaDB.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsTimeViewModel.cs" />
@@ -149,6 +150,7 @@
     <Content Include="Content\images\linkbar08.png" />
     <Content Include="Content\images\linkbar08_.png" />
     <Content Include="Content\images\linkbarbg.png" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\mainbg.png" />
     <Content Include="Content\images\NET_h_rgb_2.png" />
     <Content Include="Content\images\ninja.gif" />

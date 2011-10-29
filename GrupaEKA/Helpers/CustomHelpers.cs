@@ -8,12 +8,13 @@ namespace GrupaEka.Helpers
 {
     public static class CustomHelpers
     {
-        public static string Image(this HtmlHelper helper, string src, string altText)
+        public static MvcHtmlString Image(this HtmlHelper helper, string src, string altText)
         {
             var builder = new TagBuilder("img");
             builder.MergeAttribute("src", src);
             builder.MergeAttribute("alt", altText);
-            return builder.ToString(TagRenderMode.SelfClosing);
+            string anchorHtml = builder.ToString(TagRenderMode.SelfClosing);
+            return MvcHtmlString.Create(anchorHtml);
         }
 
         public static MvcHtmlString ActionImage(this HtmlHelper html, string action, string controller, 

@@ -495,3 +495,14 @@ div#time-editor input[type="text"]
 {
     text-align: center;
 }
+
+#email-info
+{
+    background-color: #fffacd;
+    display: inline;
+}
+
+#sending-email
+{
+    display: inline;
+}
