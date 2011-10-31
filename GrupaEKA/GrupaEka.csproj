@@ -110,7 +110,9 @@
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\GrupaEkaDB.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\NewsCategory.cs" />
     <Compile Include="Models\NewsTimeViewModel.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\UserRoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -268,6 +270,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CategoryIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CategoryDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CategoryDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CategoryCreate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CategoryEdit.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -64,7 +64,7 @@
                                 <label>wiadomość:</label><br />
                                 <textarea rows="10" cols="26" name="Message" id="Message"></textarea>
                                 <input type="submit" value="Wyślij" /> 
-                                <div id="sending-email" style="display: none">@Html.Image("Content/images/loading.gif", "loading")</div>
+                                <div id="sending-email" style="display: none">@Html.Image(Url.Content("~/Content/images/loading.gif"), "loading")</div>
                                 @*<p id="email-info">@ViewBag.Confirmation</p>*@
                             </fieldset>
                         }

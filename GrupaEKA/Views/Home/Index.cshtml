@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GrupaEka.Models.News>
+@using GrupaEka.Models
 @{
     ViewBag.Title = "Aktualności";
 }
@@ -11,12 +12,26 @@
     <h2>@item.Title</h2>
     <h4>@item.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
     <p>@Html.Raw(item.Text)</p>
-    if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
-    {
+    @*<p>Kategorie: 
+        @foreach (var cat in item.NewsCategories)
+        {
+            @Html.ActionLink(cat.Name, "Index", "Home", new { Category = cat.Name }, null)
+            @String.Format(" ")
+        }
+    </p>*@
+if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
+{
         <p>
             @Html.ActionLink("Edytuj", "Edit", "News", new { id = item.ID }, null) |
             @Html.ActionLink("Usuń", "Delete", "News", new { id = item.ID }, null)
         </p>
-    }
+}
     <hr style="height: 1px; background-color: #e0e0e0; width: 80%" />
 }
+
+<div class="center">
+@for (int i = 0; i < ViewBag.PagesCount; ++i)
+{
+    @Html.ActionLink("[" + (i + 1).ToString() + "] ", "Index", new { start = 10 * i + 1, Category = ViewBag.Category })
+}
+</div>

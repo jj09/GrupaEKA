@@ -9,5 +9,7 @@ namespace GrupaEka.Models
     public class GrupaEkaDB : DbContext
     {
         public DbSet<News> News { get; set; }
+        public DbSet<NewsCategory> NewsCategories { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }

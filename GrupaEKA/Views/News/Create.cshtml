@@ -49,7 +49,17 @@
             :
             @Html.EditorFor(model => model.Minutes)
             <input type="button" value="Teraz" id="time-now" />
-        </div>       
+        </div>   
+        
+        <div class="editor-label">
+            Kategorie:
+        </div>
+        <div class="editor-field">
+            @foreach (var category in ViewBag.NewsCategories)
+            {
+                <input type="checkbox" value="@category.ID" name="CategoryIDs" /> @category.Name @String.Format(" ")
+            }
+        </div>     
 
         <p>
             <input type="submit" value="Dodaj" />

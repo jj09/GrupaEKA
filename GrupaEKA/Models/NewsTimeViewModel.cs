@@ -17,5 +17,7 @@ namespace GrupaEka.Models
         [MaxLength(2, ErrorMessage = "Minuty mogą się składać maksymalnie z dwóch cyfr.")]
         [Range(0, 59, ErrorMessage = "Podaj minuty w zakresie 0-59")]
         public String Minutes { get; set; }
+
+        public Int32[] CategoryIDs { get; set; }
     }
 }

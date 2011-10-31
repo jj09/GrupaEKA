@@ -8,6 +8,7 @@ namespace GrupaEka.Helpers
 {
     public static class CustomHelpers
     {
+
         public static MvcHtmlString Image(this HtmlHelper helper, string src, string altText)
         {
             var builder = new TagBuilder("img");

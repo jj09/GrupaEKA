@@ -1,0 +1,29 @@
+﻿@model GrupaEka.Models.NewsCategory
+
+@{
+    ViewBag.Title = "Tworzenie kategorii";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Kategoria</legend>
+
+        <div class="editor-label">
+            Nazwa
+        </div>
+        <div class="editor-field">
+            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="submit" value="Dodaj" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Powrót do listy kategorii", "CategoryIndex")
+</div>

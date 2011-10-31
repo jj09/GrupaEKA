@@ -9,6 +9,11 @@ namespace GrupaEka.Models
 {
     public class News
     {
+        public News()
+        {
+            this.NewsCategories = new List<NewsCategory>();
+        }
+
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Data jest wymagana")]
@@ -24,5 +29,7 @@ namespace GrupaEka.Models
         public string Text { get; set; }
 
         public string Author { get; set; }
+
+        public virtual ICollection<NewsCategory> NewsCategories { get; set; }
     }
 }
