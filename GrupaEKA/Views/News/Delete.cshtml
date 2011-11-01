@@ -7,8 +7,8 @@
 <p>Jesteś pewien, że chcesz usunąć poniższą wiadomość?</p>
 
 <h2>@Model.Title</h2>
-<h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
-<p>@Html.Raw(Model.Text)</p>
+
+@Html.Partial("_Details", Model)
 
 @using (Html.BeginForm())
 {

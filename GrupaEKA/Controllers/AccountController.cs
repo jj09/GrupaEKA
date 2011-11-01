@@ -11,21 +11,8 @@ namespace GrupaEka.Controllers
 {
     public class AccountController : Controller
     {
-        public List<SelectListItem> getRolesToList()
-        {
-            List<SelectListItem> roles = new List<SelectListItem>();
-            var allRoles = Roles.GetAllRoles();
-            foreach (var role in allRoles)
-            {
-                roles.Add(new SelectListItem
-                {
-                    Text = role,
-                    Value = role
-                });
-            }
-            return roles;
-        }
-
+        private GrupaEkaDB db = new GrupaEkaDB();
+        #region CRUD
         //
         // GET: /Account/Index
         [Authorize(Roles = "admin")]
@@ -34,6 +21,58 @@ namespace GrupaEka.Controllers
             var users = Membership.GetAllUsers();
             ViewBag.roles = getRolesToList();
             return View(users);
+        }
+
+        //
+        // GET: /Account/Register
+
+        [Authorize(Roles = "admin")]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public ActionResult Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Attempt to register the user
+                MembershipCreateStatus createStatus;
+                Membership.CreateUser(model.Profile.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                Roles.AddUserToRole(model.Profile.UserName, "user");
+                db.Profiles.Add(model.Profile);
+                db.SaveChanges();
+                if (createStatus == MembershipCreateStatus.Success)
+                {
+                    //FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "Account");
+                }
+                else
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        // 
+        // GET: /Account/Details
+
+        [Authorize(Roles = "admin")]
+        public ActionResult Details(string UserName)
+        {
+            var user = Membership.GetUser(UserName);
+            if (user == null)
+                return RedirectToAction("Index");
+            ViewBag.Role = Roles.GetRolesForUser(UserName)[0];
+            return View("Details", user);
         }
 
         // 
@@ -91,7 +130,8 @@ namespace GrupaEka.Controllers
                 if (Request.IsAjaxRequest())
                     return Content("Success");
                 else
-                    return Redirect(Request.UrlReferrer.ToString());
+                    return RedirectToAction("Details", new { UserName = user.UserName });
+                    //return Redirect(Request.UrlReferrer.ToString());
 
             }
             catch (Exception)
@@ -102,6 +142,38 @@ namespace GrupaEka.Controllers
             //return View(model);
             return RedirectToAction("Index");
         }
+
+        // 
+        // GET: /Account/Delete
+        [Authorize(Roles = "admin")]
+        public ActionResult Delete(string UserName)
+        {
+            var user = Membership.GetUser(UserName);
+            if (user == null)
+                return RedirectToAction("Index");
+            ViewBag.Role = Roles.GetRolesForUser(UserName)[0];
+            return View(user);
+        }
+
+        // 
+        // POST: /Account/Delete 
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public RedirectToRouteResult Delete(string UserName, FormCollection form)
+        {
+            var profile = db.Profiles.Where(p => p.UserName == UserName).SingleOrDefault();
+            db.Profiles.Remove(profile);
+            db.SaveChanges();
+            Roles.RemoveUserFromRole(UserName, Roles.GetRolesForUser(UserName)[0]);
+            Membership.DeleteUser(UserName);
+            return RedirectToAction("Index");
+        }
+
+
+
+        #endregion CRUD
+
+        #region LogOn/ChangePass
 
         //
         // GET: /Account/LogOn
@@ -159,52 +231,6 @@ namespace GrupaEka.Controllers
         }
 
         //
-        // GET: /Account/Register
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
-
-        [HttpPost]
-        public ActionResult Register(RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Attempt to register the user
-                MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
-                Roles.AddUserToRole(model.UserName, "user");
-                if (createStatus == MembershipCreateStatus.Success)
-                {
-                    //FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        // 
-        // GET: /Account/Details
-        public ActionResult Details(string UserName)
-        {
-            var user = Membership.GetUser(UserName);
-            if (user == null)
-                return RedirectToAction("Index");
-            ViewBag.Role = Roles.GetRolesForUser(UserName)[0];
-            return View("Details", user);
-        }
-
-        //
         // GET: /Account/ChangePassword
 
         [Authorize]
@@ -253,33 +279,89 @@ namespace GrupaEka.Controllers
         //
         // GET: /Account/ChangePasswordSuccess
 
+        [Authorize]
         public ActionResult ChangePasswordSuccess()
         {
             return View();
         }
 
-        // 
-        // GET: /Account/Delete
-        [Authorize(Roles = "admin")]
-        public ActionResult Delete(string UserName)
+        //
+        // GET: /Account/ChangePassword
+
+        [Authorize]
+        public ActionResult ChangeEmail()
         {
-            var user = Membership.GetUser(UserName);
-            if (user == null)
-                return RedirectToAction("Index");
-            ViewBag.Role = Roles.GetRolesForUser(UserName)[0];
-            return View(user);
+            return View();
         }
 
-        // 
-        // POST: /Account/Delete 
-        [Authorize(Roles = "admin")]
+        //
+        // POST: /Account/ChangePassword
+
+        [Authorize]
         [HttpPost]
-        public RedirectToRouteResult Delete(string UserName, FormCollection form)
+        public ActionResult ChangeEmail(ChangeEmailModel model)
         {
-            Roles.RemoveUserFromRole(UserName, Roles.GetRolesForUser(UserName)[0]);
-            Membership.DeleteUser(UserName);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+
+                // ChangePassword will throw an exception rather
+                // than return false in certain failure scenarios.
+                bool changeEmailSucceeded;
+                try
+                {
+                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
+                    currentUser.Email = model.NewEmail;
+                    Membership.UpdateUser(currentUser);
+                    changeEmailSucceeded = true;
+                }
+                catch (Exception)
+                {
+                    changeEmailSucceeded = false;
+                }
+
+                if (changeEmailSucceeded)
+                {
+                    return RedirectToAction("ChangeEmailSuccess");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Zmiana adresu e-mail się nie powiodła.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
+
+        //
+        // GET: /Account/ChangeEmailSuccess
+
+        [Authorize]
+        public ActionResult ChangeEmailSuccess()
+        {
+            return View();
+        }
+
+        #endregion LogOn/ChangePass
+        
+        #region Helpers
+
+        private List<SelectListItem> getRolesToList()
+        {
+            List<SelectListItem> roles = new List<SelectListItem>();
+            var allRoles = Roles.GetAllRoles();
+            foreach (var role in allRoles)
+            {
+                roles.Add(new SelectListItem
+                {
+                    Text = role,
+                    Value = role
+                });
+            }
+            return roles;
+        }
+
+        #endregion Helpers
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

@@ -11,7 +11,9 @@ namespace GrupaEka.Controllers
     [Authorize(Roles = "Admin")]
     public class NewsController : Controller
     {
-        GrupaEkaDB db = new GrupaEkaDB();
+        private GrupaEkaDB db = new GrupaEkaDB();
+
+        #region News
 
         //
         // GET: /News/
@@ -145,6 +147,10 @@ namespace GrupaEka.Controllers
             return RedirectToAction("Index");
         }
 
+        #endregion News
+
+        #region NewsCategory
+
         //
         // GET: /News/CategoryIndex
         public ActionResult CategoryIndex()
@@ -157,8 +163,7 @@ namespace GrupaEka.Controllers
         //
         // GET: /News/CategoryCreate
         public ActionResult CategoryCreate()
-        {
-            
+        {            
             return View();
         }
 
@@ -239,5 +244,7 @@ namespace GrupaEka.Controllers
 
             return RedirectToAction("CategoryIndex");
         }
+
+        #endregion NewsCategory
     }
 }

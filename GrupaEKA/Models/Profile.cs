@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace GrupaEka.Models
 {
@@ -11,15 +12,27 @@ namespace GrupaEka.Models
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "Użytkownik")]
         public string UserName { get; set; }
 
+        [Display(Name="Imię")]
         public string FirstName { get; set; }
+
+        [Display(Name = "Nazwisko")]
         public string LastName { get; set; }
-        
+
+        [Display(Name = "O sobie")]
+        [DataType(DataType.MultilineText)]
+        [AllowHtml]
         public string About { get; set; }
-        
-        public int StudyYear { get; set; }
+
+        [Display(Name = "Rok studiów")]
+        public int? StudyYear { get; set; }
+
+        [Display(Name = "Kierunek")]
         public string StudyMajor { get; set; }
-        public string Faculty { get; set; }        
+
+        [Display(Name = "Wydział")]
+        public string Faculty { get; set; }
     }
 }

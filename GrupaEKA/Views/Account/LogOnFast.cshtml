@@ -5,10 +5,8 @@
 {
     <text>
     Jesteś zalogowany jako:<br /> 
-    <b>@Context.User.Identity.Name</b>
+    <b>@Html.ActionLink(Context.User.Identity.Name,"My","Profile",null,null)</b>
     [@Html.ActionLink("Wyloguj", "LogOff", "Account")]
-    <br />
-    [@Html.ActionLink("Zmiana hasła", "ChangePassword", "Account")]
     </text>
 }
 

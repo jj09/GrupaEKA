@@ -1,0 +1,50 @@
+﻿@model IEnumerable<GrupaEka.Models.Profile>
+
+@{
+    ViewBag.Title = "Członkowie";
+}
+
+<table>
+    <tr>
+        <th>
+            Imię i nazwisko
+        </th>
+        <th>
+            Rok studiów
+        </th>
+        <th>
+            Kierunek
+        </th>
+        <th>
+            Wydział
+        </th>
+        @if (HttpContext.Current.User.IsInRole("admin"))
+        {
+            <th></th>
+        }
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.FirstName+" "+item.LastName, "Details", new { id = item.ID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudyYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudyMajor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty)
+        </td>
+        @if (HttpContext.Current.User.IsInRole("admin"))
+        {
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id=item.ID })
+            </td>
+        }
+    </tr>
+}
+
+</table>

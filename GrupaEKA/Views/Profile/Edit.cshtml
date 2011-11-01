@@ -1,0 +1,12 @@
+﻿@model GrupaEka.Models.Profile
+
+@{
+    ViewBag.Title = "Edycja profilu";
+}
+
+
+@Html.Partial("_Edit", Model)
+
+<div>
+    @Html.ActionLink("Powrót do listy członków", "Index")
+</div>

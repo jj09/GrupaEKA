@@ -15,13 +15,13 @@
             Użytkownik
         </th>
         <th>
-            aktywny
+            Aktywny
         </th>
         <th>
-            ranga
+            Ranga
         </th>
         <th>
-            akcje
+            Akcje
         </th>
     </tr>
     @foreach (var user in Model)
@@ -57,8 +57,10 @@
                 </td>
                 <td>
                     <input type="submit" value="Aktualizuj" />
-                    @Html.ActionLink("[edytuj]", "Edit", "Account", new { userName = user.UserName }, null)
-                    @Html.ActionLink("[usuń]", "Delete", "Account", new { userName = user.UserName }, null)
+                    |
+                    @Html.ActionLink("Edytuj", "Edit", "Account", new { userName = user.UserName }, null)
+                    |
+                    @Html.ActionLink("Usuń", "Delete", "Account", new { userName = user.UserName }, null)
                 </td>
             </tr>
         }

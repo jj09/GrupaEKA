@@ -27,6 +27,22 @@ namespace GrupaEka.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class ChangeEmailModel
+    {
+        [Required(ErrorMessage="Podaj nowy adres e-mail.")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Nowy adres e-mail")]
+        [RegularExpression("^[0-9a-z_.-]+@([0-9a-z-]+\\.)+[a-z]{2,6}$", ErrorMessage="Podaj poprawny adres e-mail.")]
+        public string NewEmail { get; set; }
+
+        [Required(ErrorMessage = "Potwierdź nowy adres e-mail.")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Potwierdź nowy adres e-mail")]
+        [Compare("NewEmail", ErrorMessage = "Nowy e-mail i potwierdzenie nie pasują do siebie.")]
+        [RegularExpression("^[0-9a-z_.-]+@([0-9a-z-]+\\.)+[a-z]{2,6}$", ErrorMessage="Podaj poprawny adres e-mail.")]
+        public string ConfirmEmail { get; set; }
+    }
+
     public class LogOnModel
     {
         [Required]
@@ -44,9 +60,9 @@ namespace GrupaEka.Models
 
     public class RegisterModel
     {
-        [Required]
-        [Display(Name = "Użytkownik")]
-        public string UserName { get; set; }
+        //[Required]
+        //[Display(Name = "Użytkownik(*)")]
+        //public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -56,12 +72,15 @@ namespace GrupaEka.Models
         [Required]
         [StringLength(100, ErrorMessage = "{0} musi mieć dułogość conajmniej {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Nowe hasło i potwierdzenie hasła nie pasują do siebie.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Profil")]
+        public Profile Profile { get; set; }
     }
 }

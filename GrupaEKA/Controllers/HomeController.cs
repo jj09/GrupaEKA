@@ -10,7 +10,7 @@ namespace GrupaEka.Controllers
 {
     public class HomeController : Controller
     {
-        GrupaEkaDB db = new GrupaEkaDB();
+        private GrupaEkaDB db = new GrupaEkaDB();
 
         public ActionResult Index(string Category="", int start=1)
         {
@@ -37,8 +37,11 @@ namespace GrupaEka.Controllers
             }
 
             int newsCount = news.Count();
-            ViewBag.PagesCount = newsCount / 10 + (newsCount % 10 > 0 ? 1 : 0);
+            ViewBag.PagesCount = (newsCount+start-1) / 10 + (newsCount % 10 > 0 ? 1 : 0);
+            ViewBag.CurrentPage = ((start - 1) / 10) + 1 ;
             ViewBag.Category = Category;
+
+            ViewBag.Categories = db.NewsCategories.OrderByDescending(n => n.Name);
 
             return View(news.Take(10));
         }
@@ -73,7 +76,7 @@ namespace GrupaEka.Controllers
 
                     //ViewBag.Confirmation = "Twoja wiadomość została wysłana.";
                     if (Request.IsAjaxRequest())
-                        return Content("Twoja wiadomość została wysłana.");
+                        return Content("<script>alert('Twoja wiadomość została wysłana.');</script>");
                     else
                         return Redirect(Request.UrlReferrer.ToString());
 
@@ -87,7 +90,7 @@ namespace GrupaEka.Controllers
                 //
                 //ViewBag.Confirmation = "Twoja wiadomość nie została wysłana.";
                 if (Request.IsAjaxRequest())
-                    return Content("Twoja wiadomość NIE została wysłana.");
+                    return Content("<script>alert('BŁĄD! Twoja wiadomość NIE została wysłana.');</script>");
                 else
                     return Redirect(Request.UrlReferrer.ToString());
                 //return View("Index");
@@ -95,7 +98,7 @@ namespace GrupaEka.Controllers
             else
             {
                 if (Request.IsAjaxRequest())
-                    return Content("Twoja wiadomość NIE została wysłana.");
+                    return Content("<script>alert('BŁĄD! Twoja wiadomość NIE została wysłana.');</script>");
                 else
                     return Redirect(Request.UrlReferrer.ToString());
             }

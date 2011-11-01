@@ -375,6 +375,11 @@ table.manage td
 	border: 1px solid #e8eef4;
 }
 
+table.profile td
+{
+    text-align: left;
+}
+
 /* MISC  
 ----------------------------------------------------------*/
 .clear {

@@ -4,15 +4,8 @@
     ViewBag.Title = Model.Title;
 }
 
-<h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
-<p>@Html.Raw(Model.Text)</p>
-<p>Kategorie: 
-@foreach (var cat in Model.NewsCategories)
-{
-    @Html.ActionLink(cat.Name,"Index","Home",new {Category=cat.Name},null)
-    @String.Format(" ")
-}
-</p>
+@Html.Partial("_Details", Model)
+
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Usuń", "Delete", new { id = Model.ID }) |

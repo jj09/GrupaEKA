@@ -1,0 +1,27 @@
+﻿@model System.Web.Security.MembershipUser
+
+<table>
+    <tr>
+        <th>Użytkownik:</th><td>@Model.UserName</td>
+    </tr>
+    <tr>
+        <th>E-mail:</th><td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Aktywny:</th>
+        <td>               
+            @if (@Model.IsApproved == true)
+            {
+                <text>Tak</text>
+            }
+            else
+            {
+                <text>Nie</text>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Ranga:</th><td>@ViewBag.Role</td>
+    </tr>
+
+</table>
