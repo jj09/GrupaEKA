@@ -7,6 +7,9 @@
 <table>
     <tr>
         <th>
+            Nick
+        </th>
+        <th>
             Imię i nazwisko
         </th>
         <th>
@@ -27,7 +30,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.FirstName+" "+item.LastName, "Details", new { id = item.ID })
+            @Html.ActionLink(item.UserName, "Details", new { id = item.ID })
+        </td>
+        <td>
+            @item.FirstName @item.LastName
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StudyYear)

@@ -61,6 +61,8 @@ namespace GrupaEka.Controllers
             }
             else
             {
+                ViewBag.Now = DateTime.Now;
+                ViewBag.NewsCategories = db.NewsCategories;
                 return View(newNewsTime);
             }
         }

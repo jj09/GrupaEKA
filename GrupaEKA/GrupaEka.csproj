@@ -113,6 +113,7 @@
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsCategory.cs" />
     <Compile Include="Models\NewsTimeViewModel.cs" />
+    <Compile Include="Models\PasswordReset.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\UserRoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +314,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ChangeEmailSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ResetPasswordFail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ResetPasswordSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ResetPasswordSent.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

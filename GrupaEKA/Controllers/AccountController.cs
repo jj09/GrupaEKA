@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using GrupaEka.Models;
+using GrupaEka.Helpers;
+using System.Text;
+using System.Net.Mail;
 
 namespace GrupaEka.Controllers
 {
@@ -212,7 +215,7 @@ namespace GrupaEka.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Błędna nazwa użytkownika lub hasło.");
                 }
             }
 
@@ -281,6 +284,145 @@ namespace GrupaEka.Controllers
 
         [Authorize]
         public ActionResult ChangePasswordSuccess()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ResetPassword
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/ResetPassword
+        [HttpPost]
+        public ActionResult ResetPassword(string email)
+        {
+            string user = Membership.GetUserNameByEmail(email);
+            if (user == null)
+            {
+                ViewBag.ErrorMsg = "Nie znaleziono użytkownika o podanym adresie e-mail.";
+                return RedirectToAction("ResetPasswordFail");
+            }
+            
+            //generate reset password code
+            Random random = new Random((int)DateTime.Now.Ticks);
+            StringBuilder builder = new StringBuilder();
+            char ch;
+            for (int i = 0; i < 32; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            string token = builder.ToString();
+            //--end of generate reset password code
+
+            var pr = db.PasswordResets.Where(p => p.UserName == user).SingleOrDefault();
+            if (pr == null)
+            {
+                db.PasswordResets.Add(new PasswordReset { UserName = user, Token = token });
+            }
+            else
+            {
+                pr.Token = token;
+            }
+            db.SaveChanges();
+
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("noreply@grupaeka.studentlive.pl", "Grupa .NET EKA");
+                msg.To.Add(email);
+                msg.Subject = "Grupa .NET EKA: Resetowanie hasła";
+                msg.Body = "Aby zresetować hasło wejdź na poniższy link:"+
+                    "<br />http://" + Request.Url.Host + "/Account/ResetPasswordConfirm?UserName="+user+"&Token="+token;
+                msg.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.live.com", 25);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("jj09@studentlive.pl", "master");
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(msg);
+
+                msg.Dispose();
+
+                return RedirectToAction("ResetPasswordSent");
+            }
+            catch (Exception ex)
+            {
+            }
+
+            ViewBag.ErrorMsg = "Przepraszamy. Nie można wysłać e-maila z kodem resetującym hasło.";
+            return RedirectToAction("ResetPasswordFail");
+        }
+
+        //
+        // GET: /Account/ResetPasswordConfirm
+        public ActionResult ResetPasswordConfirm(string UserName, string Token)
+        {
+            var rp = db.PasswordResets.Where(r => r.UserName == UserName && r.Token == Token).SingleOrDefault();
+            if (rp == null)
+            {
+                ViewBag.ErrorMsg = "Nie poprawna nazwa użytkownika lub token. Spróbuj jeszcze raz.";
+                return RedirectToAction("ResetPasswordFail");
+            }
+
+            var user = Membership.GetUser(UserName);
+            string newPassword = user.ResetPassword();
+            Membership.UpdateUser(user);            
+
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("noreply@grupaeka.studentlive.pl", "Grupa .NET EKA");
+                msg.To.Add(user.Email);
+                msg.Subject = "Grupa .NET EKA: Resetowanie hasła";
+                msg.Body = "Twoje nowe hasło to: " + newPassword;
+                msg.IsBodyHtml = false;
+
+                SmtpClient smtp = new SmtpClient("smtp.live.com", 25);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("jj09@studentlive.pl", "master");
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(msg);
+
+                msg.Dispose();
+
+                db.PasswordResets.Remove(rp);
+                db.SaveChanges();
+                
+
+                return RedirectToAction("ResetPasswordSuccess");
+            }
+            catch (Exception ex)
+            {
+            }
+
+            ViewBag.ErrorMsg = "Przepraszamy. Nie można wysłać e-maila z nowym hasłem. Spróbuj ponownie.";
+            return RedirectToAction("ResetPasswordFail");
+        }
+
+        //
+        // GET: /Account/ResetPasswordFail
+        public ActionResult ResetPasswordFail()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ResetPasswordSuccess
+        public ActionResult ResetPasswordSuccess()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ResetPasswordSent
+        public ActionResult ResetPasswordSent()
         {
             return View();
         }

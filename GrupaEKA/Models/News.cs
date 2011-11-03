@@ -17,15 +17,18 @@ namespace GrupaEka.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Data jest wymagana")]
+        [Display(Name="Data")]
         public DateTime Date { get; set; }
         
         [Required(ErrorMessage = "Tytuł jest wymagany")]
+        [Display(Name = "Tytuł")]
         public string Title { get; set; }        
 
         [Required(ErrorMessage = "Treść wiadomości jest wymagana")]
-        [MinLength(20)]
+        [MinLength(20, ErrorMessage="Treść wiadomości musi mieć conajmniej 20 znaków.")]
         [DataType(DataType.MultilineText)]
         [AllowHtml]
+        [Display(Name = "Treść")]
         public string Text { get; set; }
 
         public string Author { get; set; }

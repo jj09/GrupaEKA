@@ -17,7 +17,7 @@ else
         <form action="/Account/LogOn" method="post">  
             Użytkownik: @Html.TextBoxFor(m => m.UserName)
             Hasło: @Html.PasswordFor(m => m.Password)
-            <input type="submit" value="Zaloguj" />
+            <input type="submit" value="Zaloguj" /><br /> @Html.ActionLink("Zapomniałeś hasła?","ResetPassword")
         </form>
     @*}*@
 }
