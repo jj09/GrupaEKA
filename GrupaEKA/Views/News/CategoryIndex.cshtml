@@ -1,26 +1,36 @@
 ﻿@model IEnumerable<GrupaEka.Models.NewsCategory>
 @using GrupaEka.Helpers
 @{
-    ViewBag.Title = "Zarządzanie kategoriami aktualności";
+    ViewBag.Title = "Kategorie aktualności";
 }
 
-<p>
-    @Html.ActionLink("Dodaj kategorie", "CategoryCreate")
-</p>
+@if (Request.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Dodaj kategorie", "CategoryCreate")
+    </p>
+}
+
 <table class="manage">
     <tr>
         <th>Nazwa kategorii</th>
-        <th>Opcje</th>
+        @if (Request.IsAuthenticated)
+        {
+            <th>Opcje</th>
+        }
     </tr>
 
 @foreach (var item in Model)
 {
     <tr>
         <td>@Html.ActionLink(item.Name, "CategoryDetails", new { id = item.ID })</td>
-        <td>
-            @Html.ActionLink("Edytuj", "CategoryEdit", new { id = item.ID }) |
-            @Html.ActionLink("Usuń", "CategoryDelete", new { id = item.ID })
-        </td>
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Edytuj", "CategoryEdit", new { id = item.ID }) |
+                @Html.ActionLink("Usuń", "CategoryDelete", new { id = item.ID })
+            </td>
+        }
     </tr>
 }
 

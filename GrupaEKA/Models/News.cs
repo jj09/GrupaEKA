@@ -12,6 +12,7 @@ namespace GrupaEka.Models
         public News()
         {
             this.NewsCategories = new List<NewsCategory>();
+            this.NewsComments = new List<NewsComment>();
         }
 
         public int ID { get; set; }
@@ -34,5 +35,7 @@ namespace GrupaEka.Models
         public string Author { get; set; }
 
         public virtual ICollection<NewsCategory> NewsCategories { get; set; }
+
+        public virtual ICollection<NewsComment> NewsComments { get; set; }
     }
 }

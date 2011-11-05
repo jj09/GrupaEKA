@@ -42,6 +42,16 @@
                             @{Html.RenderAction("LogOnFast", "Account");}
                         </div>
                         <hr />
+                        
+                        <h2>Panel administracyjny</h2>
+                        <ul class="menu-admin">
+                            <li>@Html.ActionLink("Zarządzanie aktualnościami","Index","News")</li>
+                            <li>@Html.ActionLink("Kategorie aktualności","CategoryIndex","News")</li>
+                            <li>@Html.ActionLink("Użytkownicy","Index","Account")</li>
+                        </ul>
+
+                        <hr />
+
                         <h2>Kontakt</h2>
                         
                         @using (Ajax.BeginForm(

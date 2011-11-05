@@ -53,6 +53,11 @@
         <td>@Model.Faculty
         </td>
     </tr>
+</table>
+
+<img src="../../Content/profile-photos/@Model.Photo" alt="@Model.UserName - zdjęcie profilowe" id="profile-photo" />
+
+<table class="profile-about">
     <tr>
         <th>
             O sobie:
@@ -86,6 +91,7 @@
         </td>
     </tr>
 </table>
+
 @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
 {
     <p>

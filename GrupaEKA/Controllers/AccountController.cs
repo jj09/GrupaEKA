@@ -9,12 +9,14 @@ using GrupaEka.Models;
 using GrupaEka.Helpers;
 using System.Text;
 using System.Net.Mail;
+using System.IO;
 
 namespace GrupaEka.Controllers
 {
     public class AccountController : Controller
     {
         private GrupaEkaDB db = new GrupaEkaDB();
+
         #region CRUD
         //
         // GET: /Account/Index
@@ -48,6 +50,19 @@ namespace GrupaEka.Controllers
                 MembershipCreateStatus createStatus;
                 Membership.CreateUser(model.Profile.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
                 Roles.AddUserToRole(model.Profile.UserName, "user");
+
+                //upload user photo
+                foreach (string upload in Request.Files)
+                {
+                    if (Request.Files[upload].ContentLength==0) 
+                        continue;
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/profile-photos/";
+                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                    model.Profile.Photo = model.Profile.UserName + ext;
+                    Request.Files[upload].SaveAs(Path.Combine(path, model.Profile.Photo));
+                }
+                //end of upload user photo
+
                 db.Profiles.Add(model.Profile);
                 db.SaveChanges();
                 if (createStatus == MembershipCreateStatus.Success)
@@ -176,7 +191,7 @@ namespace GrupaEka.Controllers
 
         #endregion CRUD
 
-        #region LogOn/ChangePass
+        #region LogOn
 
         //
         // GET: /Account/LogOn
@@ -233,6 +248,10 @@ namespace GrupaEka.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        #endregion LogOn
+
+        #region ChangePassword
+
         //
         // GET: /Account/ChangePassword
 
@@ -288,6 +307,10 @@ namespace GrupaEka.Controllers
             return View();
         }
 
+        #endregion ChangePassword
+
+        #region ResetPassword
+
         //
         // GET: /Account/ResetPassword
         public ActionResult ResetPassword()
@@ -300,11 +323,12 @@ namespace GrupaEka.Controllers
         [HttpPost]
         public ActionResult ResetPassword(string email)
         {
+
             string user = Membership.GetUserNameByEmail(email);
             if (user == null)
             {
                 ViewBag.ErrorMsg = "Nie znaleziono użytkownika o podanym adresie e-mail.";
-                return RedirectToAction("ResetPasswordFail");
+                return View("ResetPasswordFail");
             }
             
             //generate reset password code
@@ -349,14 +373,14 @@ namespace GrupaEka.Controllers
 
                 msg.Dispose();
 
-                return RedirectToAction("ResetPasswordSent");
+                return View("ResetPasswordSent");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
             ViewBag.ErrorMsg = "Przepraszamy. Nie można wysłać e-maila z kodem resetującym hasło.";
-            return RedirectToAction("ResetPasswordFail");
+            return View("ResetPasswordFail");
         }
 
         //
@@ -367,7 +391,7 @@ namespace GrupaEka.Controllers
             if (rp == null)
             {
                 ViewBag.ErrorMsg = "Nie poprawna nazwa użytkownika lub token. Spróbuj jeszcze raz.";
-                return RedirectToAction("ResetPasswordFail");
+                return View("ResetPasswordFail");
             }
 
             var user = Membership.GetUser(UserName);
@@ -396,14 +420,14 @@ namespace GrupaEka.Controllers
                 db.SaveChanges();
                 
 
-                return RedirectToAction("ResetPasswordSuccess");
+                return View("ResetPasswordSuccess");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
             ViewBag.ErrorMsg = "Przepraszamy. Nie można wysłać e-maila z nowym hasłem. Spróbuj ponownie.";
-            return RedirectToAction("ResetPasswordFail");
+            return View("ResetPasswordFail");
         }
 
         //
@@ -427,8 +451,12 @@ namespace GrupaEka.Controllers
             return View();
         }
 
+        #endregion ResetPassword
+
+        #region ChangeEmail
+
         //
-        // GET: /Account/ChangePassword
+        // GET: /Account/ChangeEmail
 
         [Authorize]
         public ActionResult ChangeEmail()
@@ -437,7 +465,7 @@ namespace GrupaEka.Controllers
         }
 
         //
-        // POST: /Account/ChangePassword
+        // POST: /Account/ChangeEmail
 
         [Authorize]
         [HttpPost]
@@ -484,8 +512,8 @@ namespace GrupaEka.Controllers
             return View();
         }
 
-        #endregion LogOn/ChangePass
-        
+        #endregion ChangeEmail
+
         #region Helpers
 
         private List<SelectListItem> getRolesToList()

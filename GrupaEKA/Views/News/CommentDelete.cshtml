@@ -1,0 +1,20 @@
+﻿@model GrupaEka.Models.NewsComment
+
+@{
+    ViewBag.Title = "Usuwanie komentarza";
+}
+
+<h3>Na pewno chcesz usunąć ten komentarz?</h3>
+
+<div class="news-comment">
+    <h4>@Html.ActionLink(Model.Author, "UserDetails", "Profile", new { UserName = Model.Author }, null),
+        @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h4>
+    <p>@Model.Text</p>
+</div>
+
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Usuń" />
+    </p>
+}

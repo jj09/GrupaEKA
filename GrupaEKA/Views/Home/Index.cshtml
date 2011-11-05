@@ -3,24 +3,29 @@
 @{
     ViewBag.Title = "Aktualności";
 }
-@if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
+@if (Request.IsAuthenticated)
 {
     @Html.ActionLink("Dodaj wiadomość", "Create", "News")
 }
 @foreach (var item in Model)
 {
     <h2>@item.Title</h2>
-    <h4>@item.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
+    <h4>@Html.ActionLink(item.Author, "UserDetails", "Profile", new { UserName = item.Author }, null),
+     @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
     <p>@Html.Raw(item.Text)</p>
-    @*<p>Kategorie: 
-        @foreach (var cat in item.NewsCategories)
-        {
-            @Html.ActionLink(cat.Name, "Index", "Home", new { Category = cat.Name }, null)
-            @String.Format(" ")
-        }
-    </p>*@      
+    if (item.NewsCategories.Count > 0)
+    {
+        <p>Kategorie: 
+            @foreach (var cat in item.NewsCategories)
+            {
+                @Html.ActionLink(cat.Name, "Index", "Home", new { Category = cat.Name }, null)
+                @String.Format(" ")
+            }
+        </p>
+    }
+    <p>@Html.ActionLink("Komentarze [" + item.NewsComments.Count + "]", "Details", "News", new { id = item.ID },null)</p>      
               
-    if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
+    if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.Identity.Name.Equals(item.Author))
     {
         <p>
             @Html.ActionLink("Edytuj", "Edit", "News", new { id = item.ID }, null) |

@@ -30,7 +30,7 @@ namespace GrupaEka.Controllers
                     var cat = db.NewsCategories.Where(c => c.Name == Category).Select(n=>n.Name).SingleOrDefault();    
                     news = db.News.Where(n => n.NewsCategories.Select(i => i.Name).Contains(cat)).Where(n => n.Date <= DateTime.Now).OrderByDescending(n => n.Date).Skip(start - 1);
                 }
-                catch (ArgumentNullException e)   //category not found
+                catch (ArgumentNullException)  //category not found
                 {
                     news = db.News.Where(n => n.Date <= DateTime.Now).OrderByDescending(n => n.Date).Skip(start - 1);
                 }
@@ -82,7 +82,7 @@ namespace GrupaEka.Controllers
 
                     //return View("Index");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
 

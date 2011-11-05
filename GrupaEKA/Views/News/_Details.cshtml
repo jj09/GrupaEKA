@@ -2,10 +2,13 @@
 
 <h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
 <p>@Html.Raw(Model.Text)</p>
-<p>Kategorie: 
-@foreach (var cat in Model.NewsCategories)
+@if (Model.NewsCategories.Count > 0)
 {
-    @Html.ActionLink(cat.Name,"Index","Home",new {Category=cat.Name},null)
-    @String.Format(" ")
+    <p>Kategorie: 
+        @foreach (var cat in Model.NewsCategories)
+        {
+            @Html.ActionLink(cat.Name, "Index", "Home", new { Category = cat.Name }, null)
+            @String.Format(" ")
+        }
+    </p>
 }
-</p>

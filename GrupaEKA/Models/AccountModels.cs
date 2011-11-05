@@ -60,10 +60,6 @@ namespace GrupaEka.Models
 
     public class RegisterModel
     {
-        //[Required]
-        //[Display(Name = "Użytkownik(*)")]
-        //public string UserName { get; set; }
-
         [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]

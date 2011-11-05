@@ -375,9 +375,33 @@ table.manage td
 	border: 1px solid #e8eef4;
 }
 
+table.profile
+{
+    display: inline-table;
+}
+
+table.profile th
+{
+    text-align: left;
+    width: 120px;
+}
+
 table.profile td
 {
     text-align: left;
+    max-width: 330px;
+}
+
+table.profile-about th
+{
+    text-align: left;
+    width: 120px;
+}
+
+table.profile-about td
+{
+    text-align: left;
+    max-width: 430px;
 }
 
 /* MISC  
@@ -510,4 +534,37 @@ div#time-editor input[type="text"]
 #sending-email
 {
     display: inline;
+}
+
+ul.menu-admin 
+{
+    margin-left: 20px;
+    list-style-type: none;
+    text-align: right;
+}
+
+#profile-photo
+{
+    display: inline-table;
+    vertical-align: top;
+    max-width: 150px;
+}
+
+.news-comment
+{
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    margin: 10px;
+}
+
+.news-comments hr
+{
+    width: 100%;
+    
+    text-align: left;
+}
+
+.news-comments p
+{
+    padding: 10px;
 }

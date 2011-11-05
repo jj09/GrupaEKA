@@ -34,5 +34,8 @@ namespace GrupaEka.Models
 
         [Display(Name = "Wydział")]
         public string Faculty { get; set; }
+
+        [Display(Name = "Zdjęcie")]
+        public string Photo { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using GrupaEka.Models;
 using System.Web.Security;
 using System.Net.Mail;
+using System.IO;
 
 namespace GrupaEka.Controllers
 { 
@@ -27,11 +28,22 @@ namespace GrupaEka.Controllers
         //
         // GET: /Profile/Details/5
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int id)
         {
             Profile profile = db.Profiles.Find(id);
+            if (profile == null)
+                return RedirectToAction("Index");
             ViewBag.Role = Roles.GetRolesForUser(profile.UserName)[0];
             return View(profile);
+        }
+
+        public ActionResult UserDetails(string UserName)
+        {
+            Profile profile = db.Profiles.Where(p=>p.UserName == UserName).SingleOrDefault();
+            if (profile == null)
+                return RedirectToAction("Index");
+            ViewBag.Role = Roles.GetRolesForUser(profile.UserName)[0];
+            return View("Details",profile);
         }
                 
         //
@@ -52,6 +64,26 @@ namespace GrupaEka.Controllers
         {
             if (ModelState.IsValid)
             {
+                //upload user photo
+                foreach (string upload in Request.Files)
+                {
+                    if (Request.Files[upload].ContentLength == 0)
+                        continue;
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/profile-photos/";
+
+                    FileInfo TheFile = new FileInfo(path + profile.Photo);
+                    if (TheFile.Exists)
+                    {
+                        TheFile.Delete();
+                    }
+
+                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                    profile.Photo = profile.UserName + ext;
+                    Request.Files[upload].SaveAs(Path.Combine(path, profile.Photo));
+                }
+                //end of upload user photo
+
                 db.Entry(profile).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = profile.ID });
@@ -116,7 +148,7 @@ namespace GrupaEka.Controllers
                     else
                         return Redirect(Request.UrlReferrer.ToString());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
 

@@ -112,6 +112,8 @@
     <Compile Include="Models\GrupaEkaDB.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsCategory.cs" />
+    <Compile Include="Models\NewsComment.cs" />
+    <Compile Include="Models\NewsCommentViewModel.cs" />
     <Compile Include="Models\NewsTimeViewModel.cs" />
     <Compile Include="Models\PasswordReset.cs" />
     <Compile Include="Models\Profile.cs" />
@@ -236,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\profile-photos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -326,6 +329,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ResetPasswordSent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\_CommentCreate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\_CommentDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CommentEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\News\CommentDelete.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

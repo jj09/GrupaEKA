@@ -6,12 +6,13 @@
     Hasło musi się składać minimum z @Membership.MinRequiredPasswordLength znaków.
 </p>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true, "Tworzenie konta się nie powiodło. Proszę poprawić błędy i spróbowac ponownie.")
     <div>
         <fieldset>
             <legend>Dane konta</legend>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.UserName) (*)
             </div>
@@ -19,6 +20,7 @@
                 @Html.TextBoxFor(m => m.Profile.UserName)
                 @Html.ValidationMessageFor(m => m.Profile.UserName)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Email) (*)
             </div>
@@ -26,6 +28,7 @@
                 @Html.TextBoxFor(m => m.Email)
                 @Html.ValidationMessageFor(m => m.Email)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Password) (*)
             </div>
@@ -33,6 +36,7 @@
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.ConfirmPassword) (*)
             </div>
@@ -43,6 +47,7 @@
         </fieldset>
         <fieldset>
             <legend>Dane użytkownika</legend>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.FirstName)
             </div>
@@ -50,6 +55,7 @@
                 @Html.TextBoxFor(m => m.Profile.FirstName)
                 @Html.ValidationMessageFor(m => m.Profile.FirstName)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.LastName)
             </div>
@@ -57,6 +63,7 @@
                 @Html.TextBoxFor(m => m.Profile.LastName)
                 @Html.ValidationMessageFor(m => m.Profile.LastName)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.StudyYear)
             </div>
@@ -64,6 +71,7 @@
                 @Html.TextBoxFor(m => m.Profile.StudyYear)
                 @Html.ValidationMessageFor(m => m.Profile.StudyYear)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.StudyMajor)
             </div>
@@ -71,12 +79,20 @@
                 @Html.TextBoxFor(m => m.Profile.StudyMajor)
                 @Html.ValidationMessageFor(m => m.Profile.StudyMajor)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(m => m.Profile.Faculty)
             </div>
             <div class="editor-field">
                 @Html.TextBoxFor(m => m.Profile.Faculty)
                 @Html.ValidationMessageFor(m => m.Profile.Faculty)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Profile.Photo)
+            </div>
+            <div class="editor-field">
+                <input type="file" name="Profile_Photo" id="Profile_Photo" />
             </div>
         </fieldset>
         <p>
