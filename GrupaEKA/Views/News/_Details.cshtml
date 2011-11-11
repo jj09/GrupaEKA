@@ -1,0 +1,14 @@
+﻿@model GrupaEka.Models.News
+
+<h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
+<div class="news-text">@Html.Raw(Model.Text)</div>
+@if (Model.NewsCategories.Count > 0)
+{
+    <p>Kategorie: 
+        @foreach (var cat in Model.NewsCategories)
+        {
+            @Html.ActionLink(cat.Name, "Index", "Home", new { Category = cat.Name }, null)
+            @String.Format(" ")
+        }
+    </p>
+}

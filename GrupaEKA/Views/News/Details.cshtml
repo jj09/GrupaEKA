@@ -1,0 +1,30 @@
+﻿@model GrupaEka.Models.News
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+@Html.Partial("_Details", Model)
+    <p>
+        @if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.Identity.Name.Equals(Model.Author))
+        {
+            @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID })
+            <text>|</text>
+            @Html.ActionLink("Usuń", "Delete", new { id = Model.ID })
+            <text>|</text>
+        }
+        @Html.ActionLink("Powrót do listy aktualności", "Index")
+    </p>
+
+<h2>Komentarze:</h2>
+
+@foreach (var comment in Model.NewsComments.OrderBy(c=>c.Date))
+{
+    @Html.Partial("_CommentDetails",comment)
+}
+
+@if (Request.IsAuthenticated)
+{
+    <span style="color:Red;">@ViewData["CommentError"]</span>
+    @Html.Partial("_CommentCreate", new GrupaEka.Models.NewsCommentViewModel(), new ViewDataDictionary { {"NewsID", Model.ID} })
+}

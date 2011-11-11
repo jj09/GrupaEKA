@@ -1,0 +1,84 @@
+﻿@model GrupaEka.Models.ProfileViewModel
+  
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Profil</legend>
+
+        @Html.HiddenFor(model => model.Profile.ID)
+        @Html.HiddenFor(model => model.Profile.UserName)
+        @Html.HiddenFor(model => model.Profile.Photo)
+
+        <div class="editor-label">
+            Użytkownik: <b>@Model.Profile.UserName</b>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.FirstName)
+            @Html.ValidationMessageFor(model => model.Profile.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.LastName)
+            @Html.ValidationMessageFor(model => model.Profile.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.About)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.About)
+            @Html.ValidationMessageFor(model => model.Profile.About)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.StudyYear)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.StudyYear)
+            @Html.ValidationMessageFor(model => model.Profile.StudyYear)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.StudyMajor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.StudyMajor)
+            @Html.ValidationMessageFor(model => model.Profile.StudyMajor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.Faculty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Profile.Faculty)
+            @Html.ValidationMessageFor(model => model.Profile.Faculty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Profile.Subscriptions)
+        </div>
+        <div class="editor-field">
+            @foreach (var category in ViewBag.NewsCategories)
+            {
+                
+                <input type="checkbox" value="@category.ID" name="CategoryIDs" @if(ViewBag.CurrentSubscriptions.Contains(category)) {<text>checked</text>} /> @category.Name @String.Format(" ")
+            }
+        </div>
+
+        <div class="editor-label">
+                Zmień zdjęcie
+            </div>
+        <div class="editor-field">
+            <input type="file" name="Profile_NewPhoto" id="Profile_NewPhoto" />
+        </div>
+
+        <p>
+            <input type="submit" value="Zapisz" />
+        </p>
+    </fieldset>

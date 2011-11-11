@@ -1,0 +1,15 @@
+﻿@model GrupaEka.Models.Profile
+@using GrupaEka.Models
+
+@{
+    ViewBag.Title = "Edycja profilu";
+}
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_Edit", new GrupaEka.Models.ProfileViewModel { Profile = Model })
+}
+
+<div>
+    @Html.ActionLink("Powrót do listy członków", "Index")
+</div>

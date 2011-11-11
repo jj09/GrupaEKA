@@ -1,0 +1,13 @@
+﻿@model System.Web.Security.MembershipUser
+
+@{
+    ViewBag.Title = "Dane użytkownika " + Model.UserName;
+}
+
+@Html.Partial("_Details", Model)
+
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { UserName = Model.UserName }) |
+    @Html.ActionLink("Usuń", "Delete", new { UserName = Model.UserName }) |
+    @Html.ActionLink("Powrót do listy użytkowników", "Index")
+</p>

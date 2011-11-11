@@ -1,0 +1,18 @@
+﻿@model GrupaEka.Models.Profile
+@using GrupaEka.Models
+
+@{
+    ViewBag.Title = "Mój profil ("+Model.UserName+")";
+}
+
+@Html.ActionLink("Podgląd profilu", "Details", new { id = Model.ID }) |
+@Html.ActionLink("Zmień e-mail", "ChangeEmail", "Account") | 
+@Html.ActionLink("Zmień hasło", "ChangePassword", "Account")
+<br /><br />
+
+
+
+@using (Html.BeginForm("My", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_Edit", new GrupaEka.Models.ProfileViewModel { Profile = Model })
+}
