@@ -1,14 +1,14 @@
-﻿@model GrupaEka.Models.NewsTimeViewModel
+﻿@model GrupaEka.Models.LectureTimeViewModel
 
 @{
-    ViewBag.Title = "Dodaj wiadomość";
+    ViewBag.Title = "Dodaj prelekcje";
 }
 
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script src="@Url.Content("~/Scripts/DateHelper.js")" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        setDate('#News_Date');
+        setDate('#Lecture_Date');
     });
 </script>
 
@@ -21,8 +21,8 @@
     });
 
     function UpdateText() {
-        var text = tinyMCE.get('News_Text').getContent();
-        $('#News_Text').html(text);
+        var text = tinyMCE.get('Lecture_Text').getContent();
+        $('#Lecture_Text').html(text);
     }
 </script>
 
@@ -30,32 +30,32 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Wiadomość</legend>
+        <legend>Prelekcja</legend>
 
-        <input type="hidden" name="News.Author" id="News.Author" value="@HttpContext.Current.User.Identity.Name" />
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.News.Title)
-        </div>
-        <div class="editor-field">
-            @Html.ValidationMessageFor(model => model.News.Title)
-            @Html.TextBoxFor(model => model.News.Title, new { style = "width:20em" })
-        </div>
+        <input type="hidden" name="Lecture.Author" id="Lecture.Author" value="@HttpContext.Current.User.Identity.Name" />
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.News.Text)
+            @Html.LabelFor(model => model.Lecture.Title)
         </div>
         <div class="editor-field">
-            @Html.ValidationMessageFor(model => model.News.Text)
-            @Html.TextAreaFor(model => model.News.Text, new { @class = "TinyMCE" })            
+            @Html.ValidationMessageFor(model => model.Lecture.Title)
+            @Html.TextBoxFor(model => model.Lecture.Title, new { style = "width:20em" })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lecture.Text)
+        </div>
+        <div class="editor-field">
+            @Html.ValidationMessageFor(model => model.Lecture.Text)
+            @Html.TextAreaFor(model => model.Lecture.Text, new { @class = "TinyMCE" })            
         </div>
 
         <div class="editor-label" id="date-label">
-            @Html.LabelFor(model => model.News.Date)
+            @Html.LabelFor(model => model.Lecture.Date)
         </div>
         <div class="editor-field" id="date-editor">
-            @Html.ValidationMessageFor(model => model.News.Date)
-            @Html.EditorFor(model => model.News.Date) 
+            @Html.ValidationMessageFor(model => model.Lecture.Date)
+            @Html.EditorFor(model => model.Lecture.Date) 
         </div>
 
         <div class="editor-label" id="time-label">
@@ -68,17 +68,7 @@
             :
             @Html.EditorFor(model => model.Minutes)
             <input type="button" value="Teraz" id="time-now" />
-        </div>   
-        
-        <div class="editor-label">
-            Kategorie:
-        </div>
-        <div class="editor-field">
-            @foreach (var category in ViewBag.NewsCategories)
-            {
-                <input type="checkbox" value="@category.ID" name="CategoryIDs" /> @category.Name @String.Format(" ")
-            }
-        </div>     
+        </div>       
 
         <p>
             <input type="submit" value="Dodaj" onclick="UpdateText()" />
@@ -87,5 +77,5 @@
 }
 
 <div>
-    @Html.ActionLink("Powrót do listy wiadomości", "Index")
+    @Html.ActionLink("Powrót do listy prelekcji", "Index")
 </div>

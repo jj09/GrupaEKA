@@ -101,6 +101,8 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LectureController.cs" />
+    <Compile Include="Models\LectureTimeViewModel.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -110,6 +112,9 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\GrupaEkaDB.cs" />
+    <Compile Include="Models\Lecture.cs" />
+    <Compile Include="Models\LectureComment.cs" />
+    <Compile Include="Models\LectureCommentViewModel.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsCategory.cs" />
     <Compile Include="Models\NewsComment.cs" />
@@ -204,8 +209,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Scripts\NewsDateHelper-edit.js" />
-    <Content Include="Scripts\NewsDateHelper.js" />
+    <Content Include="Scripts\DateHelper-edit.js" />
+    <Content Include="Scripts\DateHelper.js" />
     <Content Include="Scripts\tiny_mce\langs\en.js" />
     <Content Include="Scripts\tiny_mce\license.txt" />
     <Content Include="Scripts\tiny_mce\plugins\advhr\css\advhr.css" />
@@ -595,6 +600,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\News\CommentDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\_CommentCreate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\_CommentDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\_Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\CommentDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\CommentEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Lecture\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

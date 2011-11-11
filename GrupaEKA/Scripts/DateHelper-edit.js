@@ -1,8 +1,8 @@
-﻿$(document).ready(function () {
-    $('#News_Date').datepicker({ dateFormat: "yy-mm-dd" });
-    var text = $('#News_Date').val();
+﻿function setEditDate(id) {
+    $(id).datepicker({ dateFormat: "yy-mm-dd" });
+    var text = $(id).val();
     text = text.substring(0, 10);
-    $('#News_Date').val(text);
+    $(id).val(text);
 
     var hour = $('#Hour').val();
     if (hour.toString().length == 1)
@@ -31,4 +31,4 @@
         $('#Hour').val(hour);
         $('#Minutes').val(minutes);
     });
-});
+}

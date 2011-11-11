@@ -1,8 +1,8 @@
-﻿$(document).ready(function () {
-    $('#News_Date').datepicker({ dateFormat: "yy-mm-dd" });
-    var text = $('#News_Date').val();
+﻿function setDate(id) {
+    $(id).datepicker({ dateFormat: "yy-mm-dd" });
+    var text = $(id).val();
     text = text.substring(0, 10);
-    $('#News_Date').val(text);
+    $(id).val(text);
 
     var date = new Date();
     var hour = date.getHours();
@@ -22,7 +22,7 @@
         var day = date.getDate();
         if (day.length == 1)
             day = '0' + day;
-        $('#News_Date').val(date.getFullYear() + '-' + month + '-' + day);
+        $(id).val(date.getFullYear() + '-' + month + '-' + day);
         var hour = date.getHours();
         if (hour.toString().length == 1)
             hour = '0' + hour.toString();
@@ -32,4 +32,4 @@
         $('#Hour').val(hour);
         $('#Minutes').val(minutes);
     });
-});
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GrupaEka.Models.Lecture>
+@using GrupaEka.Helpers
+@{
+    ViewBag.Title = "Prelekcje";
+}
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Dodaj prelekcje", "Create", "Lecture")
+}
+@foreach (var item in Model)
+{
+    <h2>@item.Title</h2>
+    <h4>@Html.ActionLink(item.Author, "UserDetails", "Profile", new { UserName = item.Author }, null),
+     @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
+    <div>@Html.Raw(item.Text)</div>
+    
+    <p>@Html.ActionLink("Komentarze [" + item.LectureComments.Count + "]", "Details", "Lecture", new { id = item.ID }, null)</p>      
+              
+    if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.Identity.Name.Equals(item.Author))
+    {
+        <p>
+            @Html.ActionLink("Edytuj", "Edit", "Lecture", new { id = item.ID }, null) |
+            @Html.ActionLink("Usuń", "Delete", "Lecture", new { id = item.ID }, null)
+        </p>
+    }
+    <hr style="height: 1px; background-color: #e0e0e0; width: 80%" />
+}
+
+<div class="center">
+@for (int i = 0; i < ViewBag.PagesCount; ++i)
+{
+    if ((i + 1) == ViewBag.CurrentPage)
+    {
+        <b>@Html.ActionLink("[" + (i + 1).ToString() + "] ", "Index", new { start = 10 * i + 1 })</b>
+    }
+    else
+    {
+        @Html.ActionLink("[" + (i + 1).ToString() + "] ", "Index", new { start = 10 * i + 1 })
+    }
+}
+</div>
