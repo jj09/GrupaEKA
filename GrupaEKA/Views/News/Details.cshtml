@@ -16,7 +16,10 @@
         @Html.ActionLink("Powrót do listy aktualności", "Index")
     </p>
 
-<h2>Komentarze:</h2>
+@if (Model.NewsComments.Count > 0)
+{
+    <h2>Komentarze:</h2>
+}
 
 @foreach (var comment in Model.NewsComments.OrderBy(c=>c.Date))
 {

@@ -580,3 +580,15 @@ div.news-text ol,ul,li
    margin-left: 20px;  
    font-size: 10pt;
 }
+
+ul.articles
+{
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style-type: none;
+}
+
+ul.articles li
+{
+    margin-top: 10px;
+}

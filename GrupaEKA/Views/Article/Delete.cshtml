@@ -1,0 +1,19 @@
+﻿@model GrupaEka.Models.Article
+
+@{
+    ViewBag.Title = "Usuwanie artykułu";
+}
+
+<p>Jesteś pewien, że chcesz usunąć poniższy artykuł?</p>
+
+<h2>@Model.Title</h2>
+
+@Html.Partial("_Details", Model)
+
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Usuń" /> |
+        @Html.ActionLink("Powrót do listy artykułów", "Index")
+    </p>
+}

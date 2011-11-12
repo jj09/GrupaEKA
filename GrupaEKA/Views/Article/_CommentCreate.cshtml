@@ -1,0 +1,22 @@
+﻿@model GrupaEka.Models.ArticleCommentViewModel
+
+@using (Html.BeginForm("CommentCreate", "Article"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Dodaj komentarz</legend>
+        @Html.Hidden("ArticleID", ViewData["ArticleID"])
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <p>
+            <input type="submit" value="Dodaj" />
+        </p>
+    </fieldset>
+}

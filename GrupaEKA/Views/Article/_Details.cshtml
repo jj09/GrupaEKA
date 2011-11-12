@@ -1,0 +1,4 @@
+﻿@model GrupaEka.Models.Article
+
+<h3>@Model.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", Model.Date)</h3>
+<div class="news-text">@Html.Raw(Model.Text)</div>

@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GrupaEka.Models
 {
-    public class LectureCommentViewModel
+    public class ArticleCommentViewModel
     {
-        public int LectureID { get; set; }
+        public int ArticleID { get; set; }
 
         [Required(ErrorMessage = "Treść komentarza jest wymagana.")]
         [DataType(DataType.MultilineText)]

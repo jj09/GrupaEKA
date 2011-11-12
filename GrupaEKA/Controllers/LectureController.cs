@@ -307,6 +307,6 @@ namespace GrupaEka.Controllers
             return RedirectToAction("Details", new { ID = lectureComment.Lecture_ID });
         }
 
-        #endregion NewsComment
+        #endregion LectureComment
     }
 }

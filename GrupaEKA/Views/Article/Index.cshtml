@@ -1,0 +1,19 @@
+﻿@model IEnumerable<GrupaEka.Models.Article>
+@using GrupaEka.Helpers
+@{
+    ViewBag.Title = "Artykuły";
+}
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Dodaj artykuł", "Create", "Article")
+}
+<ul class="articles">
+@foreach (var item in Model)
+{
+    <li>
+        @Html.ActionLink(item.Title,"Details",new {id=item.ID})<br />
+        @item.Author, @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)
+    </li>
+}
+</ul>

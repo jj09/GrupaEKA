@@ -1,4 +1,4 @@
-﻿@model GrupaEka.Models.Lecture
+﻿@model GrupaEka.Models.Article
 
 @{
     ViewBag.Title = Model.Title;
@@ -13,15 +13,15 @@
             @Html.ActionLink("Usuń", "Delete", new { id = Model.ID })
             <text>|</text>
         }
-        @Html.ActionLink("Powrót do listy prelekcji", "Index")
+        @Html.ActionLink("Powrót do listy artykułów", "Index")
     </p>
 
-@if (Model.LectureComments.Count > 0)
+@if (Model.ArticleComments.Count > 0)
 {
     <h2>Komentarze:</h2>
 }
 
-@foreach (var comment in Model.LectureComments.OrderBy(c=>c.Date))
+@foreach (var comment in Model.ArticleComments.OrderBy(c => c.Date))
 {
     @Html.Partial("_CommentDetails",comment)
 }
@@ -29,5 +29,5 @@
 @if (Request.IsAuthenticated)
 {
     <span style="color:Red;">@ViewData["CommentError"]</span>
-    @Html.Partial("_CommentCreate", new GrupaEka.Models.LectureCommentViewModel(), new ViewDataDictionary { { "LectureID", Model.ID } })
+    @Html.Partial("_CommentCreate", new GrupaEka.Models.ArticleCommentViewModel(), new ViewDataDictionary { { "ArticleID", Model.ID } })
 }

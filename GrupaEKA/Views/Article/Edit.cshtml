@@ -1,0 +1,85 @@
+﻿@model GrupaEka.Models.ArticleTimeViewModel
+
+@{
+    ViewBag.Title = "Edycja artykułu";
+}
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="@Url.Content("~/Scripts/DateHelper-edit.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setEditDate('#Article_Date');
+    });
+</script>
+
+<script src="@Url.Content("~/Scripts/tiny_mce/tiny_mce.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        mode: "specific_textareas",
+        editor_selector: "TinyMCE",
+        theme: "advanced"
+    });
+
+    function UpdateText() {
+        var text = tinyMCE.get('Article_Text').getContent();
+        $('#Article_Text').html(text);
+    }
+</script>
+
+@using (Html.BeginForm("Edit", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Artykuł</legend>
+
+         @Html.HiddenFor(model => model.Article.ID)
+         
+         <div class="editor-label">
+            Autor: <b>@Model.Article.Author</b>
+         </div>
+
+        <div class="editor-label">
+            Tytuł
+        </div>
+        <div class="editor-field">
+            @Html.ValidationMessageFor(model => model.Article.Title)
+            @Html.TextBoxFor(model => model.Article.Title, new { style = "width:20em" }) 
+        </div>
+
+        <div class="editor-label">
+            Treść
+        </div>
+        <div class="editor-field">
+            @Html.ValidationMessageFor(model => model.Article.Text)
+            @Html.TextAreaFor(model => model.Article.Text, new { @class = "TinyMCE" })
+        </div>
+
+        <div class="editor-label" id="date-label">
+            Data
+        </div>
+        <div class="editor-field" id="date-editor">
+            @Html.ValidationMessageFor(model => model.Article.Date)
+            @Html.EditorFor(model => model.Article.Date) 
+        </div>
+
+        <div class="editor-label" id="time-label">
+            Godzina
+        </div>
+        <div class="editor-field" id="time-editor">
+            @Html.ValidationMessageFor(model => model.Hour)
+            @Html.ValidationMessageFor(model => model.Minutes)
+            @Html.EditorFor(model => model.Hour)
+            :
+            @Html.EditorFor(model => model.Minutes)
+            <input type="button" value="Teraz" id="time-now" />
+        </div>
+
+        <p>
+            <input type="submit" value="Zapisz" onclick="UpdateText()" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Powrót do listy aktualności", "Index")
+</div>

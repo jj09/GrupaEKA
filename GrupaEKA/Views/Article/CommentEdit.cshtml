@@ -1,0 +1,26 @@
+﻿@model GrupaEka.Models.ArticleComment
+
+@{
+    ViewBag.Title = "Edycja komentarza";
+}
+
+@using (Html.BeginForm("CommentEdit", "Article"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Edycja komentarza</legend>
+            @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <p>
+            <input type="submit" value="Aktualizuj" />
+        </p>
+    </fieldset>
+}

@@ -6,9 +6,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GrupaEka.Models
 {
-    public class LectureCommentViewModel
+    public class ArticleComment
     {
-        public int LectureID { get; set; }
+        public int ID { get; set; }
+
+        public int Article_ID { get; set; }
+
+        [ForeignKey("Article_ID")]
+        public virtual Article Article { get; set; }
+
+        [Display(Name = "Autor")]
+        public string Author { get; set; }
+
+        [Display(Name = "Data")]
+        public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Treść komentarza jest wymagana.")]
         [DataType(DataType.MultilineText)]
