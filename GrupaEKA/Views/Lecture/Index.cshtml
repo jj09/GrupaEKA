@@ -11,9 +11,7 @@
 @foreach (var item in Model)
 {
     <h2>@item.Title</h2>
-    <h4>@Html.ActionLink(item.Author, "UserDetails", "Profile", new { UserName = item.Author }, null),
-     @String.Format("{0:d} ({0:HH}:{0:mm})", item.Date)</h4>
-    <div>@Html.Raw(item.Text)</div>
+    @Html.Partial("_Details", item)
     
     <p>@Html.ActionLink("Komentarze [" + item.LectureComments.Count + "]", "Details", "Lecture", new { id = item.ID }, null)</p>      
               

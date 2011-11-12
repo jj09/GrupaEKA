@@ -7,6 +7,7 @@ using GrupaEka.Models;
 using System.Data;
 using System.Web.Security;
 using System.Net.Mail;
+using System.IO;
 
 namespace GrupaEka.Controllers
 {
@@ -58,6 +59,23 @@ namespace GrupaEka.Controllers
                 Int32.TryParse(newLectureTime.Minutes, out minutes);
                 TimeSpan time = new TimeSpan(hour, minutes, 0);
                 newLecture.Date = newLecture.Date + time;
+
+                //add file
+                foreach (string upload in Request.Files)
+                {
+                    if (Request.Files[upload].ContentLength == 0)
+                        continue;
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/files/";
+
+                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                    string baseName = Request.Files[upload].FileName.Substring(0,Request.Files[upload].FileName.LastIndexOf('.'));
+                    string uploadDate = String.Format("({0:d})", newLecture.Date);
+                    newLecture.File = (baseName + uploadDate).Replace(' ', '_').Replace('/', '_') + ext;
+                    Request.Files[upload].SaveAs(Path.Combine(path, newLecture.File));
+                }
+                //end add file
+
                 db.Lectures.Add(newLecture);
                 db.SaveChanges();
 
@@ -118,6 +136,29 @@ namespace GrupaEka.Controllers
                 lecture.Date = model.Lecture.Date + time;
                 lecture.Text = model.Lecture.Text;
                 lecture.Title = model.Lecture.Title;
+
+                //add file
+                foreach (string upload in Request.Files)
+                {
+                    if (Request.Files[upload].ContentLength == 0)
+                        continue;
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/files/";
+
+                    FileInfo TheFile = new FileInfo(path + model.Lecture.File);
+                    if (TheFile.Exists)
+                    {
+                        TheFile.Delete();
+                    }
+
+                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                    string baseName = Request.Files[upload].FileName.Substring(0,Request.Files[upload].FileName.LastIndexOf('.'));
+                    string uploadDate = String.Format("({0:d})", lecture.Date);
+                    lecture.File = (baseName+uploadDate).Replace(' ', '_').Replace('/', '_') + ext;
+                    Request.Files[upload].SaveAs(Path.Combine(path, lecture.File));
+                }
+                //end add file
+
                 UpdateModel(lecture);
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = model.Lecture.ID });
@@ -154,6 +195,15 @@ namespace GrupaEka.Controllers
                 return RedirectToAction("Index", "Lecture");
             if (!lecture.Author.Equals(Membership.GetUser().UserName) && !Roles.IsUserInRole(Membership.GetUser().UserName, "admin"))
                 return RedirectToAction("Details", new { ID = lecture.ID });
+
+            //delete file
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Content/files/";
+            FileInfo TheFile = new FileInfo(path + lecture.File);
+            if (TheFile.Exists)
+            {
+                TheFile.Delete();
+            }
+            //end delete file
 
             db.Lectures.Remove(lecture);
             db.SaveChanges();

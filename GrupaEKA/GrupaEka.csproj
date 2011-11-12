@@ -497,6 +497,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\files\" />
     <Folder Include="Content\profile-photos\" />
   </ItemGroup>
   <ItemGroup>

@@ -26,7 +26,8 @@
     }
 </script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "Lecture", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Prelekcja</legend>
@@ -72,6 +73,14 @@
             @Html.EditorFor(model => model.Minutes)
             <input type="button" value="Teraz" id="time-now" />
         </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lecture.File)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.Lecture.File)
+            <input type="file" name="Lecture_NewFile" id="Lecture_NewFile" />
+        </div> 
 
         <p>
             <input type="submit" value="Zapisz" onclick="UpdateText()" />

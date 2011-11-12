@@ -31,7 +31,11 @@ namespace GrupaEka.Models
         [Display(Name = "Treść")]
         public string Text { get; set; }
 
+        [Display(Name = "Autor")]
         public string Author { get; set; }
+
+        [Display(Name = "Załącznik")]
+        public string File { get; set; }
 
         public virtual ICollection<LectureComment> LectureComments { get; set; }
     }
