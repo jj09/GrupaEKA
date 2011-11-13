@@ -1,0 +1,14 @@
+﻿@model GrupaEka.Models.Projects
+@using GrupaEka.Helpers
+@{
+    ViewBag.Title = "Projekty";
+}
+
+@if (HttpContext.Current.User.IsInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Edytuj","ProjectsEdit")
+    </p>
+}
+
+@Html.Raw(Model.Content)

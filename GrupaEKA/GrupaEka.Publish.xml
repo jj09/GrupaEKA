@@ -28,7 +28,7 @@
     <file relUrl="Scripts/tiny_mce/themes/advanced/js/source_editor.js" publishTime="11/05/2011 10:40:13" />
     <file relUrl="Scripts/tiny_mce/themes/advanced/img/shockwave.gif" publishTime="11/05/2011 10:40:13" />
     <file relUrl="Scripts/tiny_mce/plugins/template/template.htm" publishTime="11/05/2011 10:40:12" />
-    <file relUrl="Views/Lecture/Details.cshtml" publishTime="11/11/2011 01:11:43" />
+    <file relUrl="Views/Lecture/Details.cshtml" publishTime="11/12/2011 15:06:44" />
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Scripts/tiny_mce/plugins/preview/editor_plugin.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Scripts/tiny_mce/plugins/table/css/row.css" publishTime="11/05/2011 10:40:12" />
@@ -88,6 +88,7 @@
     <file relUrl="Views/Lecture/Create.cshtml" publishTime="11/11/2011 23:22:48" />
     <file relUrl="Scripts/tiny_mce/plugins/layer/editor_plugin_src.js" publishTime="11/05/2011 10:40:11" />
     <file relUrl="Content/images/howto2.gif" publishTime="07/03/2011 15:31:16" />
+    <file relUrl="Views/Home/ProjectsEdit.cshtml" publishTime="11/12/2011 17:32:06" />
     <file relUrl="Scripts/tiny_mce/plugins/xhtmlxtras/cite.htm" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Content/images/linkbar08.png" publishTime="10/17/2011 10:30:49" />
     <file relUrl="Scripts/tiny_mce/plugins/xhtmlxtras/js/del.js" publishTime="11/05/2011 10:40:12" />
@@ -255,14 +256,14 @@
     <file relUrl="Scripts/tiny_mce/plugins/table/js/table.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Content/images/bg.png" publishTime="07/03/2011 15:31:14" />
     <file relUrl="Views/News/_CommentCreate.cshtml" publishTime="11/04/2011 23:16:27" />
-    <file relUrl="Views/Article/Details.cshtml" publishTime="11/12/2011 14:50:02" />
+    <file relUrl="Views/Article/Details.cshtml" publishTime="11/12/2011 15:06:12" />
     <file relUrl="Content/images/linkbar01.jpg" publishTime="10/17/2011 10:30:48" />
     <file relUrl="Views/News/Delete.cshtml" publishTime="10/31/2011 17:47:11" />
     <file relUrl="Scripts/tiny_mce/themes/advanced/skins/default/ui.css" publishTime="11/05/2011 10:40:13" />
     <file relUrl="Content/images/linkbar04_.jpg" publishTime="10/17/2011 10:27:40" />
     <file relUrl="Content/images/loading.gif" publishTime="05/25/2009 11:36:32" />
     <file relUrl="Scripts/tiny_mce/plugins/xhtmlxtras/js/cite.js" publishTime="11/05/2011 10:40:12" />
-    <file relUrl="bin/GrupaEKA.dll" publishTime="11/12/2011 14:38:58" />
+    <file relUrl="bin/GrupaEKA.dll" publishTime="11/12/2011 18:01:01" />
     <file relUrl="Scripts/tiny_mce/themes/simple/skins/default/ui.css" publishTime="11/05/2011 10:40:13" />
     <file relUrl="Scripts/tiny_mce/plugins/xhtmlxtras/css/popup.css" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="10/13/2011 19:33:28" />
@@ -286,6 +287,7 @@
     <file relUrl="Scripts/tiny_mce/plugins/table/css/cell.css" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Content/themes/base/jquery.ui.selectable.css" publishTime="10/13/2011 19:33:27" />
     <file relUrl="Scripts/tiny_mce/themes/advanced/img/icons.gif" publishTime="11/05/2011 10:40:13" />
+    <file relUrl="Views/Home/Projects.cshtml" publishTime="11/12/2011 18:00:53" />
     <file relUrl="Scripts/tiny_mce/plugins/save/editor_plugin_src.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Scripts/tiny_mce/plugins/paste/js/pastetext.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Scripts/tiny_mce/themes/simple/skins/default/content.css" publishTime="11/05/2011 10:40:13" />
@@ -354,7 +356,7 @@
     <file relUrl="Views/_ViewStart.cshtml" publishTime="10/13/2011 19:33:01" />
     <file relUrl="Scripts/tiny_mce/plugins/visualchars/editor_plugin_src.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Scripts/tiny_mce/themes/advanced/skins/o2k7/content.css" publishTime="11/05/2011 10:40:13" />
-    <file relUrl="bin/GrupaEKA.pdb" publishTime="11/12/2011 14:38:58" />
+    <file relUrl="bin/GrupaEKA.pdb" publishTime="11/12/2011 18:01:01" />
     <file relUrl="Scripts/tiny_mce/plugins/advimage/image.htm" publishTime="11/05/2011 10:40:10" />
     <file relUrl="Scripts/tiny_mce/plugins/autoresize/editor_plugin_src.js" publishTime="11/05/2011 10:40:11" />
     <file relUrl="Scripts/tiny_mce/themes/advanced/skins/o2k7/img/button_bg.png" publishTime="11/05/2011 10:40:13" />
@@ -381,7 +383,7 @@
     <file relUrl="Content/images/linkbar.png" publishTime="07/03/2011 15:31:18" />
     <file relUrl="Web.config" publishTime="11/05/2011 01:01:00" />
     <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="10/13/2011 19:33:01" />
-    <file relUrl="Views/News/Details.cshtml" publishTime="11/04/2011 23:29:44" />
+    <file relUrl="Views/News/Details.cshtml" publishTime="11/12/2011 15:07:03" />
     <file relUrl="Content/images/top.png" publishTime="10/13/2011 20:05:14" />
     <file relUrl="Scripts/tiny_mce/plugins/xhtmlxtras/js/abbr.js" publishTime="11/05/2011 10:40:12" />
     <file relUrl="Content/themes/base/images/ui-icons_2e83ff_256x240.png" publishTime="10/13/2011 19:33:28" />

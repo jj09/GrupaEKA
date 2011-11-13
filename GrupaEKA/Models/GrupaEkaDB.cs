@@ -15,6 +15,7 @@ namespace GrupaEka.Models
         public DbSet<LectureComment> LectureComments { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<ArticleComment> ArticleComments { get; set; }
+        public DbSet<Projects> Projects { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<PasswordReset> PasswordResets { get; set; }
     }

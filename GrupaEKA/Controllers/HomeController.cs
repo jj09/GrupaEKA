@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GrupaEka.Models;
 using System.Net.Mail;
+using System.IO;
 
 namespace GrupaEka.Controllers
 {
@@ -49,6 +50,31 @@ namespace GrupaEka.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        public ActionResult Projects()
+        {
+            var projects = db.Projects.First();
+            return View(projects);
+        }
+
+        [Authorize(Roles="admin")]
+        public ActionResult ProjectsEdit()
+        {
+            var projects = db.Projects.First();
+            return View(projects);
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public ActionResult ProjectsEdit(Projects model)
+        {
+            var projects = db.Projects.First();
+            projects.Content = model.Content;
+            UpdateModel(projects);
+            db.SaveChanges();
+            return RedirectToAction("Projects");
+            
         }
 
         [HttpPost]
