@@ -73,8 +73,19 @@ namespace GrupaEka.Controllers
             projects.Content = model.Content;
             UpdateModel(projects);
             db.SaveChanges();
-            return RedirectToAction("Projects");
-            
+            return RedirectToAction("Projects");            
+        }
+
+        public ActionResult Gallery()
+        {
+            PhotosViewModel photos = new PhotosViewModel();
+            var photosDir = AppDomain.CurrentDomain.BaseDirectory + "Content/photos/";
+            photos.Photos = Directory.GetFiles(photosDir);
+            for (int i=0; i<photos.Photos.Count(); ++i)
+            {
+                photos.Photos[i] = photos.Photos[i].Substring(photos.Photos[i].LastIndexOf('/'));
+            }
+            return View(photos);
         }
 
         [HttpPost]
