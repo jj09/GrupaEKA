@@ -24,8 +24,6 @@ namespace GrupaEka.Models
         [Required(ErrorMessage = "Treść komentarza jest wymagana.")]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Treść")]
-        public string Text { get; set; }
-
-        
+        public string Text { get; set; }        
     }
 }

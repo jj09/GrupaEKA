@@ -242,7 +242,7 @@ namespace GrupaEka.Controllers
 
         //
         // GET: /News/CategoryCreate
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public ActionResult CategoryCreate()
         {            
             return View();
@@ -250,7 +250,7 @@ namespace GrupaEka.Controllers
 
         //
         // POST: /News/CategoryCreate
-        [Authorize]
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult CategoryCreate(NewsCategory category)
         {
@@ -273,7 +273,7 @@ namespace GrupaEka.Controllers
 
         // 
         // GET: /News/CategoryDetails
-        [Authorize]
+        [Authorize(Roles="admin")]
         public ActionResult CategoryDetails(int id)
         {
             NewsCategory category = db.NewsCategories.Find(id);
@@ -284,7 +284,7 @@ namespace GrupaEka.Controllers
 
         // 
         // GET: /News/CategoryEdit
-        [Authorize]
+        [Authorize(Roles="admin")]
         public ActionResult CategoryEdit(int id)
         {
             NewsCategory category = db.NewsCategories.Find(id);
@@ -295,7 +295,7 @@ namespace GrupaEka.Controllers
 
         // 
         // POST: /News/CategoryEdit 
-        [Authorize]
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult CategoryEdit(NewsCategory newscategory)
         {
@@ -310,7 +310,7 @@ namespace GrupaEka.Controllers
 
         // 
         // GET: /News/CategoryDelete
-        [Authorize]
+        [Authorize(Roles="admin")]
         public ActionResult CategoryDelete(int id)
         {
             NewsCategory category = db.NewsCategories.Find(id);
@@ -321,7 +321,7 @@ namespace GrupaEka.Controllers
 
         // 
         // POST: /News/CategoryDelete 
-        [Authorize]
+        [Authorize(Roles="admin")]
         [HttpPost]
         public RedirectToRouteResult CategoryDelete(int id, FormCollection collection)
         {

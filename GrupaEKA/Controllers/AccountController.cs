@@ -396,8 +396,7 @@ namespace GrupaEka.Controllers
 
             var user = Membership.GetUser(UserName);
             string newPassword = user.ResetPassword();
-            Membership.UpdateUser(user);            
-
+            Membership.UpdateUser(user);
             try
             {
                 MailMessage msg = new MailMessage();

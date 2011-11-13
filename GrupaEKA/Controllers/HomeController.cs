@@ -88,6 +88,11 @@ namespace GrupaEka.Controllers
             return View(photos);
         }
 
+        public ActionResult Other()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SendEmail(Email email)
         {
