@@ -13,7 +13,17 @@ namespace GrupaEka.Controllers
 {
     public class LectureController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        private IGrupaEkaDB db;
+
+        public LectureController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public LectureController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         #region Lecture
 

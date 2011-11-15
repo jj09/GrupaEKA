@@ -107,6 +107,8 @@
     <Compile Include="Models\ArticleComment.cs" />
     <Compile Include="Models\ArticleCommentViewModel.cs" />
     <Compile Include="Models\ArticleTimeViewModel.cs" />
+    <Compile Include="Models\Email2UsersViewModel.cs" />
+    <Compile Include="Models\IGrupaEkaDB.cs" />
     <Compile Include="Models\LectureTimeViewModel.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -699,6 +701,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Other.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Profile\SendEmail2Users.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

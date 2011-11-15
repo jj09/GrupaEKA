@@ -13,13 +13,23 @@ namespace GrupaEka.Controllers
 {
     public class ArticleController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        public IGrupaEkaDB db;
+
+        public ArticleController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public ArticleController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         #region Article
 
         //
         // GET: /Article/
-        public ActionResult Index(int start = 1)
+        public ActionResult Index()
         {
             var articles = db.Articles.Where(n => n.Date <= DateTime.Now).OrderByDescending(n => n.Date);
 

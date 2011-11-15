@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GrupaEka.Models.Profile>
+@using GrupaEka.Helpers
+
+<script type="text/javascript">
+    function checkAll() {
+        if ($('#all').attr('checked') == true) {
+            $("table#users input[type='checkbox']").attr('checked', true);
+        }
+        else {
+            $("table#users input[type='checkbox']").attr('checked', false);
+        }
+    }
+</script>
+
+@{
+    ViewBag.Title = "Wyślij wiadomość do użytkowników";
+}
+@using (Ajax.BeginForm(
+                "SendEmail2Users", "Profile", null,
+                new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    LoadingElementId = "sending-email",
+                    UpdateTargetId = "email-info",
+                    OnComplete = "PostOnComplete"
+                },
+                new { id = "SendEmail2Users" }))
+{
+    <table id="users">
+        <tr>
+            <th>
+                Użytkownik
+            </th>
+            <th>
+                Imię i nazwisko
+            </th>
+            <th>
+                Wszyscy<br /><input type="checkbox" id="all" name="all" onclick="checkAll()" /> 
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    <input type="checkbox" value="@item.UserName" name="Users" />
+                </td>
+            </tr>
+        }
+    </table>
+
+    <textarea rows="7" cols="26" name="Message" id="Message"></textarea><br />
+    <input type="submit" value="Wyślij" />
+    <div id="sending-email" style="display: none">@Html.Image(Url.Content("~/Content/images/loading.gif"), "loading")</div>
+    <div id="email-info">
+    </div>
+}

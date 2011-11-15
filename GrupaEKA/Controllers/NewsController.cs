@@ -12,7 +12,17 @@ namespace GrupaEka.Controllers
 {
     public class NewsController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        private IGrupaEkaDB db;
+
+        public NewsController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public NewsController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         #region News
 
@@ -301,9 +311,15 @@ namespace GrupaEka.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(newscategory).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("CategoryIndex");
+                var category = db.NewsCategories.Find(newscategory.ID);
+                if (category != null)
+                {
+                    //db.Entry(newscategory).State = EntityState.Modified;
+                    category.Name = newscategory.Name;
+                    UpdateModel(category);
+                    db.SaveChanges();
+                    return RedirectToAction("CategoryIndex");
+                }
             }
             return View(newscategory);
         }

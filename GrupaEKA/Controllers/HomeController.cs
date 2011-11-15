@@ -6,12 +6,23 @@ using System.Web.Mvc;
 using GrupaEka.Models;
 using System.Net.Mail;
 using System.IO;
+using System.Data.Entity;
 
 namespace GrupaEka.Controllers
 {
     public class HomeController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        public IGrupaEkaDB db;
+
+        public HomeController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public HomeController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         public ActionResult Index(string Category="", int start=1)
         {

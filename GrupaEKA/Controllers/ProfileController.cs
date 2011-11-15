@@ -14,7 +14,17 @@ namespace GrupaEka.Controllers
 { 
     public class ProfileController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        private IGrupaEkaDB db;
+
+        public ProfileController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public ProfileController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         //
         // GET: /Profile/
@@ -119,7 +129,7 @@ namespace GrupaEka.Controllers
         }
 
         //
-        // GET: /Profile/MyProfile/5
+        // GET: /Profile/MyProfile
         [Authorize]
         public ActionResult My()
         {
@@ -133,7 +143,7 @@ namespace GrupaEka.Controllers
         }
 
         //
-        // POST: /Profile/MyProfile/5
+        // POST: /Profile/MyProfile
 
         [Authorize]
         [HttpPost]
@@ -143,6 +153,8 @@ namespace GrupaEka.Controllers
             return RedirectToAction("Details", new { id = model.Profile.ID });
         }
 
+        //
+        // POST: /Profile/SendEmail2User
         [HttpPost]
         [Authorize]
         public ActionResult SendEmail2User(Email email)
@@ -184,10 +196,62 @@ namespace GrupaEka.Controllers
                     return Redirect(Request.UrlReferrer.ToString());
         }
 
-        protected override void Dispose(bool disposing)
+        //
+        // GET: /Profile/SendEmail2Users
+        [Authorize(Roles = "admin")]
+        public ActionResult SendEmail2Users()
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            var profiles = db.Profiles;
+            return View(profiles);
+        }
+
+        //
+        // POST: /Profile/SendEmail2Users
+        [HttpPost]
+        [Authorize(Roles="admin")]
+        public ActionResult SendEmail2Users(Email2UsersViewModel email)
+        {
+            try
+            {
+                string user = "jj09@studentlive.pl";
+                string pass = "master";
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress(user, "Admin");
+                msg.Sender = new MailAddress(user, "Admin");
+                foreach (var e in email.Users)
+                {
+                    var userEmail = Membership.GetUser(e).Email;
+                    if(userEmail != null)
+                        msg.To.Add(userEmail);
+                }
+                msg.Subject = "Wiadomość od administratora Grupa .NET EKA";
+                msg.Body = email.Message;
+                msg.IsBodyHtml = false;
+
+                SmtpClient smtp = new SmtpClient("smtp.live.com", 25);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential(user, pass);
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(msg);
+
+                msg.Dispose();
+
+                if (Request.IsAjaxRequest())
+                    return Content("<script>alert('Twoja wiadomość została wysłana.');</script>");
+                else
+                    return Redirect(Request.UrlReferrer.ToString());
+            }
+            catch (Exception)
+            {
+            }
+
+            // If we are here...something kicked us into the exception.
+            //
+            if (Request.IsAjaxRequest())
+                return Content("<script>alert('BŁĄD! Twoja wiadomość NIE została wysłana.');</script>");
+            else
+                return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

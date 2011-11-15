@@ -15,7 +15,17 @@ namespace GrupaEka.Controllers
 {
     public class AccountController : Controller
     {
-        private GrupaEkaDB db = new GrupaEkaDB();
+        private IGrupaEkaDB db;
+
+        public AccountController()
+        {
+            db = new GrupaEkaDB();
+        }
+
+        public AccountController(IGrupaEkaDB dbContext)
+        {
+            db = dbContext;
+        }
 
         #region CRUD
         //
