@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="4c4ac0a1-2908-4576-a3e4-bf5b2ddefaaa"
+  name="GrupaEKA.UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="e0eab949-825b-43a0-ae49-8b996df506a4"
+        name="Administrator"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b7d692e0-4255-4ba6-a35c-010c00eedd74"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Zarządzanie użytkownikami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="766ba268-2b5d-4154-bef1-27dfe39b397e"
+              LastKnownName="Zarządzanie użytkownikami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5e9fd51-ecd0-4e67-be3f-778fe35379bc"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="764be050-eba5-4b15-a5a6-13a4111ce096"
+                  name="Zarządzanie użytkownikami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="808b6941-de41-45a3-a00e-97cb08f5d5de"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Zarządzanie aktualnościami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2a3ec8be-d40b-4b0c-ae86-58b78626a794"
+              LastKnownName="Zarządzanie aktualnościami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="316438f0-b144-4c89-b019-1e0965fb36a0"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6faff019-bc9c-480a-a0a8-72ee02221dcc"
+                  name="Zarządzanie aktualnościami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bf92dbf0-8d37-4a8d-a8e0-ba0a655d1c7c"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Zarządzanie aktykułami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="dda451aa-a968-4fa8-8491-d95f332817bc"
+              LastKnownName="Zarządzanie aktykułami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c2cf64d6-0906-438e-bdf6-ca7ed2c91618"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1bdf4c3-d55e-4646-bf74-1c8b44da10ae"
+                  name="Zarządzanie aktykułami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c0fdcc62-50a1-4250-909a-0b6b43ddae09"
+            isDerived="false"
+            sourceEndRoleName="Administrator"
+            targetEndRoleName="Zarządzanie prelekcjami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="209c66cf-33e9-42ee-a047-0e10808101e6"
+              LastKnownName="Zarządzanie prelekcjami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5a4e7bf5-01ba-45da-8a46-e02e30264304"
+                  name="Administrator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="47137413-192c-4404-8206-654b363336d1"
+                  name="Zarządzanie prelekcjami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="495cfe24-cd69-4388-8242-a5510f3811fc"
+        name="Członek koła"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="007ad639-b302-405b-85ef-539f2c55e0f3"
+            isDerived="false"
+            sourceEndRoleName="Członek koła"
+            targetEndRoleName="Edycja profilu"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="931a0fc5-3118-4fd2-b7a4-1d37c34d0767"
+              LastKnownName="Edycja profilu"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d170a3d3-1055-490a-a286-7dd0fed26a45"
+                  name="Członek koła"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="71112d0e-245f-4342-9f96-dcbf89c14d39"
+                  name="Edycja profilu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="847273ad-8712-4807-b043-0cc7498f8a8b"
+            isDerived="false"
+            sourceEndRoleName="Członek koła"
+            targetEndRoleName="Zarządzanie utworzonymi przez siebie aktualnościami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bf066c20-5c66-4616-8d08-c092002587db"
+              LastKnownName="Zarządzanie utworzonymi przez siebie aktualnościami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a088acb9-4959-4a22-b2b8-d1159aad1b93"
+                  name="Członek koła"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="223d553e-fee0-47c3-a1f8-ddf88c907eb7"
+                  name="Zarządzanie utworzonymi przez siebie aktualnościami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9e8e8f80-5ad7-4c90-8004-97771e4f71be"
+            isDerived="false"
+            sourceEndRoleName="Członek koła"
+            targetEndRoleName="Tworzenie i zarządzanie swoimi artykułami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a12a5a76-de9a-4905-a552-e4a48ae8fd90"
+              LastKnownName="Tworzenie i zarządzanie swoimi artykułami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d249488-5a95-4be6-acf1-f629d7f8f264"
+                  name="Członek koła"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ac4314e8-49a2-4276-9aed-ca75112a5abe"
+                  name="Tworzenie i zarządzanie swoimi artykułami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="47d229b4-bfc7-4699-af18-53fcb124e7bd"
+            isDerived="false"
+            sourceEndRoleName="Członek koła"
+            targetEndRoleName="Tworzenie i zarządzanie dodanymi przez siebie prelekcjami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9ec0afb4-9057-46f2-9c06-cc5088562ab9"
+              LastKnownName="Tworzenie i zarządzanie dodanymi przez siebie prelekcjami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7a9bdd42-b643-4017-8d8b-63ebb37dd58e"
+                  name="Członek koła"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1e513ffb-0c47-44d1-9b07-e3254b761b38"
+                  name="Tworzenie i zarządzanie dodanymi przez siebie prelekcjami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="c92f443e-3099-42ba-8761-3584488160e5"
+        name="Gość"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="766ba268-2b5d-4154-bef1-27dfe39b397e"
+        name="Zarządzanie użytkownikami"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2a3ec8be-d40b-4b0c-ae86-58b78626a794"
+        name="Zarządzanie aktualnościami"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bf066c20-5c66-4616-8d08-c092002587db"
+        name="Zarządzanie utworzonymi przez siebie aktualnościami"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="257a7a99-1b0c-4e67-b4d3-c9747b6a6c48">
+            <useCaseMoniker
+              Id="2a3ec8be-d40b-4b0c-ae86-58b78626a794"
+              LastKnownName="Zarządzanie aktualnościami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dda451aa-a968-4fa8-8491-d95f332817bc"
+        name="Zarządzanie aktykułami"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a12a5a76-de9a-4905-a552-e4a48ae8fd90"
+        name="Tworzenie i zarządzanie swoimi artykułami"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="9c8673bc-f43c-4e21-baad-eb43897a7b09">
+            <useCaseMoniker
+              Id="dda451aa-a968-4fa8-8491-d95f332817bc"
+              LastKnownName="Zarządzanie aktykułami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="931a0fc5-3118-4fd2-b7a4-1d37c34d0767"
+        name="Edycja profilu"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="db519851-cc44-42a6-9f2d-d9fa87244d6b">
+            <useCaseMoniker
+              Id="766ba268-2b5d-4154-bef1-27dfe39b397e"
+              LastKnownName="Zarządzanie użytkownikami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="209c66cf-33e9-42ee-a047-0e10808101e6"
+        name="Zarządzanie prelekcjami"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9ec0afb4-9057-46f2-9c06-cc5088562ab9"
+        name="Tworzenie i zarządzanie dodanymi przez siebie prelekcjami"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="9bdd6a83-398e-4f96-a14f-df5ed7147733">
+            <useCaseMoniker
+              Id="209c66cf-33e9-42ee-a047-0e10808101e6"
+              LastKnownName="Zarządzanie prelekcjami"
+              LastKnownLocation="GrupaEKA.UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

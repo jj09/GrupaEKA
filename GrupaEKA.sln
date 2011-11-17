@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupaEka", "GrupaEKA\GrupaE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupaEKA.Tests", "GrupaEKA.Tests\GrupaEKA.Tests.csproj", "{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}"
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "GrupaEka.Azure", "GrupaEka.Azure\GrupaEka.Azure.ccproj", "{1D88F3DD-5D2D-4DBC-BC17-113C9E29320A}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "GrupaEKA.UML", "GrupaEKA.UML\GrupaEKA.UML.modelproj", "{F059D459-564A-433D-845C-31AE8C603D45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11F5E1C-1D01-44D6-8FC6-3B53326D1E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D88F3DD-5D2D-4DBC-BC17-113C9E29320A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D88F3DD-5D2D-4DBC-BC17-113C9E29320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D88F3DD-5D2D-4DBC-BC17-113C9E29320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D88F3DD-5D2D-4DBC-BC17-113C9E29320A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F059D459-564A-433D-845C-31AE8C603D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F059D459-564A-433D-845C-31AE8C603D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F059D459-564A-433D-845C-31AE8C603D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F059D459-564A-433D-845C-31AE8C603D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

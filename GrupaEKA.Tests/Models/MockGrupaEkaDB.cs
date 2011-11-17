@@ -34,7 +34,10 @@ namespace GrupaEka.Tests.Models
             LectureComments = new MockDbSet<LectureComment>();
             Articles = new MockDbSet<Article>();
             ArticleComments = new MockDbSet<ArticleComment>();
-            Projects = new MockDbSet<Projects>();
+            Projects = new MockDbSet<Projects>
+            {
+                new Projects {ID=1, Content="Nasze projekty"}
+            };
             Profiles = new MockDbSet<Profile>();
             PasswordResets = new MockDbSet<PasswordReset>();
         }
