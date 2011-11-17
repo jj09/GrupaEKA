@@ -19,7 +19,7 @@ namespace GrupaEka.Tests.Controllers
     {
         private AccountController controller;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void AccountControllerTestSetUp()
         {
             controller = new AccountController(new MockGrupaEkaDB());

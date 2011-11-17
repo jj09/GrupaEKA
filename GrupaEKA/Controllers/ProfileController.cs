@@ -14,7 +14,7 @@ namespace GrupaEka.Controllers
 { 
     public class ProfileController : Controller
     {
-        private IGrupaEkaDB db;
+        public IGrupaEkaDB db;
 
         public ProfileController()
         {
@@ -64,7 +64,7 @@ namespace GrupaEka.Controllers
             ViewBag.NewsCategories = db.NewsCategories;
             Profile profile = db.Profiles.Find(id);
             if (profile == null)
-                return Redirect("Index");
+                return RedirectToAction("Index");
             ViewBag.CurrentSubscriptions = profile.Subscriptions;
             return View(profile);
         }
@@ -91,22 +91,29 @@ namespace GrupaEka.Controllers
                 profile.StudyYear = model.Profile.StudyYear;                
 
                 //upload user photo
-                foreach (string upload in Request.Files)
+                try
                 {
-                    if (Request.Files[upload].ContentLength == 0)
-                        continue;
-
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/profile-photos/";
-
-                    FileInfo TheFile = new FileInfo(path + model.Profile.Photo);
-                    if (TheFile.Exists)
+                    foreach (string upload in Request.Files)
                     {
-                        TheFile.Delete();
-                    }
+                        if (Request.Files[upload].ContentLength == 0)
+                            continue;
 
-                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
-                    profile.Photo = model.Profile.UserName + ext;
-                    Request.Files[upload].SaveAs(Path.Combine(path, profile.Photo));
+                        string path = AppDomain.CurrentDomain.BaseDirectory + "Content/profile-photos/";
+
+                        FileInfo TheFile = new FileInfo(path + model.Profile.Photo);
+                        if (TheFile.Exists)
+                        {
+                            TheFile.Delete();
+                        }
+
+                        string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                        profile.Photo = model.Profile.UserName + ext;
+                        Request.Files[upload].SaveAs(Path.Combine(path, profile.Photo));
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    //no photo
                 }
                 //end of upload user photo
 

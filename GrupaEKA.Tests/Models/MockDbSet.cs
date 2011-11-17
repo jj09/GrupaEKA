@@ -46,6 +46,11 @@ namespace GrupaEka.Tests.Models
             return item;
         }
 
+        public int Count()
+        {
+            return _data.Count;
+        }
+
         public void Detach(T item)
         {
             _data.Remove(item);

@@ -13,7 +13,7 @@ namespace GrupaEka.Controllers
 {
     public class LectureController : Controller
     {
-        private IGrupaEkaDB db;
+        public IGrupaEkaDB db;
 
         public LectureController()
         {
@@ -31,8 +31,12 @@ namespace GrupaEka.Controllers
         // GET: /Lecture/
         public ActionResult Index(int start = 1)
         {
+            int allLecturesCount = db.Lectures.Where(n => n.Date <= DateTime.Now).Count();
+            if(start > allLecturesCount)
+                start = allLecturesCount;
             if (start < 1)
                 start = 1;
+            
 
             IQueryable<Lecture> lectures = db.Lectures.Where(n => n.Date <= DateTime.Now).OrderByDescending(n => n.Date).Skip(start - 1);
 
@@ -71,18 +75,25 @@ namespace GrupaEka.Controllers
                 newLecture.Date = newLecture.Date + time;
 
                 //add file
-                foreach (string upload in Request.Files)
+                try
                 {
-                    if (Request.Files[upload].ContentLength == 0)
-                        continue;
+                    foreach (string upload in Request.Files)
+                    {
+                        if (Request.Files[upload].ContentLength == 0)
+                            continue;
 
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content/files/";
+                        string path = AppDomain.CurrentDomain.BaseDirectory + "Content/files/";
 
-                    string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
-                    string baseName = Request.Files[upload].FileName.Substring(0,Request.Files[upload].FileName.LastIndexOf('.'));
-                    string uploadDate = String.Format("({0:d})", newLecture.Date);
-                    newLecture.File = (baseName + uploadDate).Replace(' ', '_').Replace('/', '_') + ext;
-                    Request.Files[upload].SaveAs(Path.Combine(path, newLecture.File));
+                        string ext = Request.Files[upload].FileName.Substring(Request.Files[upload].FileName.LastIndexOf('.'));
+                        string baseName = Request.Files[upload].FileName.Substring(0, Request.Files[upload].FileName.LastIndexOf('.'));
+                        string uploadDate = String.Format("({0:d})", newLecture.Date);
+                        newLecture.File = (baseName + uploadDate).Replace(' ', '_').Replace('/', '_') + ext;
+                        Request.Files[upload].SaveAs(Path.Combine(path, newLecture.File));
+                    }
+                }
+                catch (NullReferenceException) 
+                {
+                    //no files uploaded 
                 }
                 //end add file
 

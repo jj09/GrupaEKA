@@ -26,6 +26,9 @@ namespace GrupaEka.Controllers
 
         public ActionResult Index(string Category="", int start=1)
         {
+            int allNewsCount = db.News.Where(n => n.Date <= DateTime.Now).Count();
+            if (start > allNewsCount)
+                start = allNewsCount;
             if (start < 1)
                 start = 1;
 

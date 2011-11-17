@@ -516,7 +516,6 @@ div#time-editor input[type="text"]
     background: inherit;
     font: inherit;
     color: blue;
-    cursor: hand;
     cursor: pointer;
     padding: 0px;
 }

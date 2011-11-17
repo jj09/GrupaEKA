@@ -27,20 +27,14 @@ namespace GrupaEka.Tests.Models
         public MockGrupaEkaDB()
         {
             // Set up your collections
-            News = new MockDbSet<News>
-            {
-                new News() { Title = "First news", Text = "Some text", Date = DateTime.Now, Author = "jj09", ID = 1  }
-            };
+            News = new MockDbSet<News>();
             NewsCategories = new MockDbSet<NewsCategory>();
             NewsComments = new MockDbSet<NewsComment>();
             Lectures = new MockDbSet<Lecture>();
             LectureComments = new MockDbSet<LectureComment>();
             Articles = new MockDbSet<Article>();
             ArticleComments = new MockDbSet<ArticleComment>();
-            Projects = new MockDbSet<Projects>
-            {
-                new Projects() { ID=1, Content = "Nasze projekty" }
-            };
+            Projects = new MockDbSet<Projects>();
             Profiles = new MockDbSet<Profile>();
             PasswordResets = new MockDbSet<PasswordReset>();
         }

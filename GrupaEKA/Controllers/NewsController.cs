@@ -12,7 +12,7 @@ namespace GrupaEka.Controllers
 {
     public class NewsController : Controller
     {
-        private IGrupaEkaDB db;
+        public IGrupaEkaDB db;
 
         public NewsController()
         {

@@ -19,18 +19,15 @@ namespace GrupaEka.Tests.Controllers
     {
         private HomeController controller;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void HomeControllerTestSetUp()
         {
             controller = new HomeController(new MockGrupaEkaDB());
-
             var routeData = new RouteData();
             var httpContext = MockRepository.GenerateStub<HttpContextBase>();
             FormCollection formParameters = new FormCollection();
             ControllerContext controllerContext =
-            MockRepository.GenerateStub<ControllerContext>(httpContext,
-                                                                routeData,
-                                                                controller);
+            MockRepository.GenerateStub<ControllerContext>(httpContext, routeData, controller);
             controller.ControllerContext = controllerContext;
             controller.ValueProvider = formParameters.ToValueProvider();
         }            
@@ -44,6 +41,13 @@ namespace GrupaEka.Tests.Controllers
             // Assert
             Assert.AreEqual(1, result.ViewBag.CurrentPage);
             Assert.AreEqual("SomeCat", result.ViewBag.Category);
+
+            // Act
+            ViewResult result2 = controller.Index("SomeCat2", 99) as ViewResult;
+
+            // Assert
+            Assert.AreEqual(1, result2.ViewBag.CurrentPage);
+            Assert.AreEqual("SomeCat2", result2.ViewBag.Category);
         }
 
         [Test]

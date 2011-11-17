@@ -67,6 +67,8 @@
     <Compile Include="Controllers\AccountControllerTests.cs" />
     <Compile Include="Controllers\ArticleControllerTests.cs" />
     <Compile Include="Controllers\LectureControllerTests.cs" />
+    <Compile Include="Controllers\NewsControllerTests.cs" />
+    <Compile Include="Controllers\ProfileControllerTests.cs" />
     <Compile Include="Models\MockDbSet.cs" />
     <Compile Include="Models\MockGrupaEkaDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,9 +15,12 @@ else
     @*@using (Html.BeginForm()) 
     {*@
         <form action="/Account/LogOn" method="post">  
-            Użytkownik: @Html.TextBoxFor(m => m.UserName)
-            Hasło: @Html.PasswordFor(m => m.Password)
+            <fieldset>
+            <legend>Logowanie</legend>
+            <div><label for="UserName">Użytkownik:</label><br /> @Html.TextBoxFor(m => m.UserName)</div>
+            <div><label for="Password">Hasło:</label><br /> @Html.PasswordFor(m => m.Password)</div>
             <input type="submit" value="Zaloguj" /><br /> @Html.ActionLink("Zapomniałeś hasła?","ResetPassword")
+            </fieldset>
         </form>
     @*}*@
 }

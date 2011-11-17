@@ -71,9 +71,9 @@
                         {
                             <fieldset>
                                 <legend>Napisz do nas</legend>
-                                <label>e-mail:</label>
+                                <label for="EmailAddress">e-mail:</label>
                                 <input type="email" required="required" pattern="^[0-9a-z_.-]+@@([0-9a-z-]+\.)+[a-z]{2,6}$" value="" name="EmailAddress" id="EmailAddress"/>
-                                <label>wiadomość:</label><br />
+                                <label for="Message">wiadomość:</label><br />
                                 <textarea rows="10" cols="26" name="Message" id="Message"></textarea>
                                 <input type="submit" value="Wyślij" /> 
                                 <div id="sending-email" style="display: none">@Html.Image(Url.Content("~/Content/images/loading.gif"), "loading")</div>
